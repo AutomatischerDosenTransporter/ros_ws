@@ -6,22 +6,23 @@ Speed 0.5 = Alle zwei Program Zyklen
 float programFrequenzy = 4000; // Run program in 1kHz oder in Schritte pro Secunde
 float highTime = 400; // In Mikrosecunden
 
+
 struct Motor {
   int stepPin;
   int dirPin;
   float speed;
-  int offset;
+  long offset;
 
   int idleCounter;
 };
 
-Motor xMotor = {2, 5, 0.1, 400, 0};
-Motor yMotor = {3, 6, 0.05, 200, 0};
-Motor zMotor = {4, 7, 0.05, -200, 0};
+Motor xMotor = {2, 5, 1.0, 400, 0};
+Motor yMotor = {3, 6, 1.0, 400, 0};
+Motor zMotor = {4, 7, 1.0, 400, 0};
 
 void setup() {
- Serial.begin(9600);
- Serial.println("Initializing...");
+  Serial.begin(9600);
+  Serial.println("Initializing...");
 
   initMotor(xMotor);
   initMotor(yMotor);
@@ -48,24 +49,74 @@ void loop() {
 
 
 void checkSerial() {
-  if (Serial.available() > 0) {
-    // read the incoming byte:
+  while (Serial.available() >= 2) {
+    // PRE COMMAND
     char type = Serial.read();
-    
-    switch(type) {
-      case 'm':
-
+    char axis = Serial.read();
+    Motor currentMotor;
+    switch(axis) {
+      case 'x':
+      currentMotor = xMotor;
       break;
-      default:
-        Serial.write("Unknown command! " + type + "")
+      case 'y':
+      currentMotor = yMotor;
+      break;
+      case 'z':
+      currentMotor = zMotor;
+      break;
+      default: 
+        Serial.print("Unknown axis ");
+        Serial.println(axis);
       break;
     }
 
-    // say what you got:
-    Serial.print("I received: ");
-    Serial.println(incomingByte, DEC);
+    if(axis != 'x' && axis != 'y' && axis != 'z') continue;
+
+    // COMMAND
+    switch(type) {
+      case 'm': // Move
+      int offset = Serial.parseInt();
+      currentMotor.offset += offset;
+
+      Serial.print("Move axis ");
+      Serial.print(axis);
+      Serial.print(" ");
+      Serial.print(offset);
+      Serial.print(" steps");
+      break;
+      case 's': // Speed
+      Serial.print("Speed axis ");
+      Serial.print(axis);
+      Serial.println();
+
+      break;
+      case 'x': // Stop
+      Serial.print("Stop axis ");
+      Serial.print(axis);
+      Serial.println();
+
+      break;
+      default:
+        Serial.print("Unknown command!");
+        Serial.println(type);
+      break;
+    }
+  
+    // POST COMMAND
+    switch(axis) {
+      case 'x':
+      xMotor = currentMotor;
+      break;
+      case 'y':
+      yMotor = currentMotor;
+      break;
+      case 'z':
+      zMotor = currentMotor;
+      break;
+    }
   }
 }
+
 
 void initMotor(Motor motor) {
  pinMode(motor.stepPin, OUTPUT);
