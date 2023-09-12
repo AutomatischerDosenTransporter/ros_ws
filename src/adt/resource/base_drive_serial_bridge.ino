@@ -3,22 +3,24 @@ Speed 1 = Every Programm Zyklen
 Speed 0.5 = Alle zwei Program Zyklen
 */
 
-float programFrequenzy = 4000; // Run program in 1kHz oder in Schritte pro Secunde
+float programFrequenzy = 1200; // Run program in 1kHz oder in Schritte pro Secunde
 float highTime = 400; // In Mikrosecunden
+float lowTime = 400; // In Mikrosecunden
 
 
 struct Motor {
-  int stepPin;
+  int stepPin; 
   int dirPin;
-  float speed;
+  int speed; // in Steps per Second
   long offset;
 
-  int idleCounter;
+  float idleAmount;
+  float idleCounter;
 };
 
-Motor xMotor = {2, 5, 1.0, 400, 0};
-Motor yMotor = {3, 6, 1.0, 400, 0};
-Motor zMotor = {4, 7, 1.0, 400, 0};
+Motor xMotor = {2, 5, 400, 0, 1.0, 0};
+Motor yMotor = {3, 6, 400, 0, 1.0, 0};
+Motor zMotor = {4, 7, 400, 0, 1.0, 0};
 
 void setup() {
   Serial.begin(9600);
@@ -32,7 +34,13 @@ void setup() {
  Serial.println("Initialized");
 }
 
+unsigned long oldTime = 0; 
 void loop() {
+
+  unsigned long currentTime = micros(); 
+  if (currentTime - oldTime < 1 / programFrequenzy * 1000000) return;
+  oldTime = currentTime; 
+
   checkSerial();
 
   xMotor = executeMotor(xMotor);
@@ -44,15 +52,21 @@ void loop() {
   digitalWrite(xMotor.stepPin, LOW);
   digitalWrite(yMotor.stepPin, LOW);
   digitalWrite(zMotor.stepPin, LOW);
-  delayMicroseconds((((float) 1) / programFrequenzy) * 1000000 - highTime);
+  delayMicroseconds(lowTime);
 }
 
 
 void checkSerial() {
-  while (Serial.available() >= 2) {
+  while (Serial.available() >= 3) {
+    if(Serial.read() != ',') continue;
+    
     // PRE COMMAND
     char type = Serial.read();
     char axis = Serial.read();
+    Serial.print("Command: Type=");
+    Serial.print(type);
+    Serial.print(" Axis=");
+    Serial.println(axis);
     Motor currentMotor;
     switch(axis) {
       case 'x':
@@ -70,36 +84,46 @@ void checkSerial() {
       break;
     }
 
-    if(axis != 'x' && axis != 'y' && axis != 'z') continue;
-
     // COMMAND
-    switch(type) {
-      case 'm': // Move
-      int offset = Serial.parseInt();
-      currentMotor.offset += offset;
+    bool commandCheck = false;
+    if(type == 'm' && !commandCheck) {// Move
+        commandCheck = true;
+        int offset = Serial.parseInt();
+        currentMotor.offset += offset;
 
-      Serial.print("Move axis ");
-      Serial.print(axis);
-      Serial.print(" ");
-      Serial.print(offset);
-      Serial.print(" steps");
-      break;
-      case 's': // Speed
-      Serial.print("Speed axis ");
-      Serial.print(axis);
-      Serial.println();
+        Serial.print("offset ");
+        Serial.print(axis);
+        Serial.print(" axis by ");
+        Serial.print(offset);
+        Serial.print(" to ");
+        Serial.println(currentMotor.offset);
+    }
+    
+    if(type == 's' && !commandCheck) {// Speed
+        commandCheck = true;
+        int speed = Serial.parseInt();
+        currentMotor.speed = speed;
+        currentMotor.idleAmount = float(currentMotor.speed) / programFrequenzy;
 
-      break;
-      case 'x': // Stop
-      Serial.print("Stop axis ");
-      Serial.print(axis);
-      Serial.println();
+        Serial.print("set ");
+        Serial.print(axis);
+        Serial.print(" axis speed to ");
+        Serial.print(currentMotor.speed);
+        Serial.print(" and idleAmount to ");
+        Serial.println(currentMotor.idleAmount);
+    }
 
-      break;
-      default:
+    if(type == 'x' && !commandCheck) { // Stop
+        commandCheck = true;
+        Serial.print("stopped ");
+        Serial.print(axis);
+        Serial.println(" axis"); 
+    }
+
+    if(!commandCheck) {
+        commandCheck = true;
         Serial.print("Unknown command!");
         Serial.println(type);
-      break;
     }
   
     // POST COMMAND
@@ -125,27 +149,26 @@ void initMotor(Motor motor) {
 
 
 Motor executeMotor(Motor motor) {
-  int idleAmount = 1.0 / motor.speed;
-  if(motor.idleCounter < idleAmount) {
-    motor.idleCounter++;
-    return motor;
-  } else {
-    motor.idleCounter = 0;
-  }
+  motor.idleCounter += motor.idleAmount;
 
+  if (motor.idleCounter >= 1) {
+    motor.idleCounter--;
+      
 
-  if(motor.offset != 0) {
-    if (motor.offset > 0) {
-      digitalWrite(motor.dirPin, LOW);
-      motor.offset--;
-    }
+    if(motor.offset != 0) {
+      if (motor.offset > 0) {
+        digitalWrite(motor.dirPin, LOW);
+        motor.offset--;
+      }
 
-    if (motor.offset < 0) {
-      digitalWrite(motor.dirPin, HIGH);
-      motor.offset++;
-    }
+      if (motor.offset < 0) {
+        digitalWrite(motor.dirPin, HIGH);
+        motor.offset++;
+      }
     
-    digitalWrite(motor.stepPin, HIGH);
+      digitalWrite(motor.stepPin, HIGH);
+    }
   }
+
   return motor;
 }
