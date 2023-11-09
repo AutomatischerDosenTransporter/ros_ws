@@ -7,4 +7,4 @@ COPY ./src ./src
 #RUN rosdep update
 #RUN rosdep install --from-paths src -y
 RUN colcon build
-RUN source install/setup.bash
+RUN source install/setup.sh
