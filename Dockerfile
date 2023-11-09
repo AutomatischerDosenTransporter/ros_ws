@@ -1,7 +1,7 @@
 FROM osrf/ros:foxy-desktop
 LABEL authors="Daniel Nussbaum"
 
-WORKDIR /app
-COPY ../ros_ws /app
+WORKDIR /ros_ws
+COPY ./src ./src
 
-ENTRYPOINT ["/bin/bash", "./ros_ws/custom_install.bash"]
+ENTRYPOINT ["colcon","build"]
