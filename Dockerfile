@@ -6,6 +6,7 @@ WORKDIR /ros_ws
 COPY ./src ./src
 
 RUN source /opt/ros/foxy/setup.bash \
-RUN apt-get update -y \
-RUN rosdep install --from-paths src --ignore-src --rosdistro foxy -y \
-RUN colcon build --symlink-install
+    && apt-get update -y \
+    && rosdep install --from-paths src --ignore-src --rosdistro foxy -y \
+    && colcon build --symlink-install
+    && source ./install/setup.bash
