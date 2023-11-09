@@ -10,7 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag danussi/adt:${{ github.sha }}
+      run: docker build . --file Dockerfile --tag registry.nussi.net/adt:${{ github.sha }}
     - name: Run the Docker image
-      run: docker run danussi/adt:${{ github.sha }}
+      run: docker run registry.nussi.net/adt:${{ github.sha }}
+    - name: Push the Docker image
+      run: docker push registry.nussi.net/adt:${{ github.sha }}
     
