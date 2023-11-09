@@ -14,5 +14,5 @@ jobs:
 #    - name: Run the Docker image
 #      run: docker run registry.nussi.net/adt:${{ github.sha }}
     - name: Push the Docker image
-      run: docker push registry.nussi.net/adt:${{ github.sha }}
+      run: docker push registry.nussi.net/adt:${{ github.sha }} registry.nussi.net/adt:latest
     
