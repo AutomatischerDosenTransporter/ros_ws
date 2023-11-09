@@ -8,5 +8,5 @@ COPY ./src ./src
 RUN source /opt/ros/foxy/setup.bash \
     && apt-get update -y \
     && rosdep install --from-paths src --ignore-src --rosdistro foxy -y \
-    && colcon build --symlink-install
+    && colcon build --symlink-install \
     && source ./install/setup.bash
