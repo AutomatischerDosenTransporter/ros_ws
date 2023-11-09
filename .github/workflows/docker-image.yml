@@ -13,6 +13,8 @@ jobs:
       run: docker build . --file Dockerfile --tag registry.nussi.net/adt:${{ github.sha }} --tag registry.nussi.net/adt:latest
 #    - name: Run the Docker image
 #      run: docker run registry.nussi.net/adt:${{ github.sha }}
-    - name: Push the Docker image
+    - name: Push the Docker image tag
       run: docker push registry.nussi.net/adt:${{ github.sha }} registry.nussi.net/adt:latest
+    - name: Push the Docker image latest
+      run: docker push registry.nussi.net/adt:latest
     
