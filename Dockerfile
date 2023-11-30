@@ -8,6 +8,8 @@ RUN apt-get install python3-colcon-common-extensions
 RUN apt-get install -y python3-pip
 RUN pip3 install setuptools==58.2.0
 
+RUN git clone https://github.com/allenh1/rplidar_ros.git ~/ros_ws/src/rpliader_ros
+
 FROM step1 AS step2
 RUN apt-get install -y ros-foxy-rplidar-ros
 
