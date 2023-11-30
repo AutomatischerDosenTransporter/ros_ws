@@ -21,5 +21,6 @@ COPY ./src ./src
 
 RUN source /opt/ros/foxy/setup.bash
 RUN rosdep install --from-paths src --ignore-src --rosdistro foxy -y
+RUN colcon build --symlink-install; exit 0
 RUN colcon build --symlink-install
 RUN echo '~/ros_ws/install/setup.bash' >> ~/.bashrc
