@@ -2,6 +2,8 @@ FROM osrf/ros:foxy-desktop AS step1
 LABEL authors="Daniel Nussbaum"
 SHELL ["/bin/bash", "-c"]
 
+RUN rm /etc/apt/sources.list.d/ros2-snapshots.list
+RUN apt-get update -y
 RUN apt-get install python3-colcon-common-extensions
 RUN apt-get install -y python3-pip
 RUN pip3 install setuptools==58.2.0
