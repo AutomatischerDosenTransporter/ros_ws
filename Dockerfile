@@ -10,7 +10,7 @@ RUN pip3 install setuptools==58.2.0
 
 
 FROM step1 AS step2
-RUN git clone https://github.com/allenh1/rplidar_ros.git /ros_ws/src/rpliader_ros
+RUN git clone https://github.com/babakhani/rplidar_ros2.git /ros_ws/src/rplidar_ros
 
 FROM step2 AS step3
 RUN pip install pyserial
