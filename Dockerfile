@@ -7,9 +7,12 @@ RUN apt-get install -y python3-pip
 RUN pip3 install setuptools==58.2.0
 
 FROM step1 AS step2
-RUN pip install pyserial
+RUN apt-get install -y ros-foxy-rplidar-ros
 
 FROM step2 AS step3
+RUN pip install pyserial
+
+FROM step3 AS step4
 WORKDIR /ros_ws
 COPY ./src ./src
 
