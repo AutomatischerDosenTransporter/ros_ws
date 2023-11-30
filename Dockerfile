@@ -1,4 +1,4 @@
-FROM ros:foxy-desktop AS step1
+FROM ros:foxy AS step1
 LABEL authors="Daniel Nussbaum"
 SHELL ["/bin/bash", "-c"]
 
