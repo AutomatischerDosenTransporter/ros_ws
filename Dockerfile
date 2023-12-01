@@ -21,3 +21,5 @@ RUN source /opt/ros/foxy/setup.bash
 RUN rosdep install --from-paths src --ignore-src --rosdistro foxy -y
 RUN colcon build --symlink-install
 RUN echo 'source /ros_ws/install/setup.bash' >> ~/.bashrc
+
+CMD ["/bin/bash", ""]
