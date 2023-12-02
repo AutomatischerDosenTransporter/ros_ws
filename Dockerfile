@@ -1,25 +1,26 @@
-FROM ros:foxy AS step1
-LABEL authors="Daniel Nussbaum"
+ARG ROS_DISTRO=foxy
+MAINTAINER "Daniel Nussbaum"
+
+########################################
+# Base Image for TurtleBot3 Simulation #
+########################################
+FROM osrf/ros:${ROS_DISTRO}-desktop as base
+ENV ROS_DISTRO=${ROS_DISTRO}
 SHELL ["/bin/bash", "-c"]
 
+# Install dependencies
 RUN rm /etc/apt/sources.list.d/ros2-snapshots.list
 RUN apt-get update -y
-RUN apt-get install python3-colcon-common-extensions
 RUN apt-get install -y python3-pip
-RUN pip3 install setuptools==58.2.0
-
-FROM step1 AS step2
-
-FROM step2 AS step3
 RUN pip install pyserial
 
-FROM step3 AS step4
+# Create Colcon workspace with external dependencies
+RUN mkdir -p /ros_ws/src
 WORKDIR /ros_ws
-COPY ./src /ros_ws/src
+COPY ./src /row_ws/src
 
-RUN source /opt/ros/foxy/setup.bash
-RUN rosdep install --from-paths src --ignore-src --rosdistro foxy -y
+# Build the base Colcon workspace, installing dependencies first.
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash
+RUN apt-get update -y
+RUN rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 RUN colcon build --symlink-install
-RUN echo 'source /ros_ws/install/setup.bash' >> ~/.bashrc
-
-CMD ["/bin/bash", ""]
