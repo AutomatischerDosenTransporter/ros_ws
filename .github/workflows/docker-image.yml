@@ -36,7 +36,7 @@ jobs:
     - build
     - select-runner
     runs-on: ${{needs.select-runner.outputs.RUNNER}}
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     steps:
     - uses: actions/checkout@v3
     - name: Tag the Dockerr image latest
