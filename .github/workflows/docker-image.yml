@@ -50,6 +50,7 @@ jobs:
     - push-latest
     - select-runner
     runs-on: ${{needs.select-runner.outputs.RUNNER}}
+    if: ${{ always() && !failure() && !cancelled() }} # when none of the needed jobs fail or are cancelled (skipped or successful jobs are ok).
     steps:
     - uses: actions/checkout@v3
     - name: Prune all the Docker images
