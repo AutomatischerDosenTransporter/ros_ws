@@ -16,5 +16,5 @@ jobs:
     - name: Push the Docker image latest
       run: if [ "$GITHUB_REF_NAME" == "main" ]; then docker tag registry.nussi.net/adt:${{ github.sha }} registry.nussi.net/adt:latest && docker push registry.nussi.net/adt:latest; else echo "Not main branch! Skipping pushing latest..."; fi
     - name: Prune all the Docker images
-      run: docker image prune --alll --force
+      run: docker image prune --all --force
       
