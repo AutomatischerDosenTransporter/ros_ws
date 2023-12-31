@@ -1,11 +1,9 @@
-ARG ROS_DISTRO=foxy
-
 ########################################
-# Base Image for TurtleBot3 Simulation #
+# Base Image for ADT                   #
 ########################################
-FROM osrf/ros:${ROS_DISTRO}-desktop as build_base_part
-ENV ROS_DISTRO=${ROS_DISTRO}
+FROM ros:foxy as build_base_part
 SHELL ["/bin/bash", "-c"]
+ENV ROS_DISTRO=${ROS_DISTRO}
 
 MAINTAINER "Daniel Nussbaum"
 
