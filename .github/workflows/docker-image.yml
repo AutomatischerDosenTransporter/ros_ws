@@ -41,4 +41,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Prune all the Docker images
-      run: docker image prune --all --force
+      run: docker image prune --all --force --filter label=storage="github_action_prune"
