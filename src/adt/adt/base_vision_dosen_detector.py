@@ -14,6 +14,9 @@ class BaseDriveSerialBridge(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
 
+
+
+
     def timer_callback(self):
         msg = String()
         msg.data = 'Hello World: %d' % self.i
