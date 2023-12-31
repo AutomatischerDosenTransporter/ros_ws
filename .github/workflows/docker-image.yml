@@ -11,10 +11,34 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --no-cache --file Dockerfile --tag registry.nussi.net/adt:${{ github.sha }}
+      
+  push-sha:
+    runs-on: self-hosted
+    needs: build
+    steps:
+    - uses: actions/checkout@v3
     - name: Push the Docker image tag
       run: docker push registry.nussi.net/adt:${{ github.sha }}
+
+  push-latest:
+    runs-on: self-hosted
+    needs: 
+    - push-sha
+    - build
+    if: github.ref == 'refs/heads/master'
+    steps:
+    - uses: actions/checkout@v3
+    - name: Tag the Dockerr image latest
+      run: docker tag registry.nussi.net/adt:${{ github.sha }} registry.nussi.net/adt:latest
     - name: Push the Docker image latest
-      run: if [ "$GITHUB_REF_NAME" == "main" ]; then docker tag registry.nussi.net/adt:${{ github.sha }} registry.nussi.net/adt:latest && docker push registry.nussi.net/adt:latest; else echo "Not main branch! Skipping pushing latest..."; fi
+      run: docker push registry.nussi.net/adt:latest
+  
+  prune:
+    runs-on: self-hosted
+    needs: 
+    - push-sha
+    - push-latest
+    steps:
+    - uses: actions/checkout@v3
     - name: Prune all the Docker images
       run: docker image prune --all --force
-      
