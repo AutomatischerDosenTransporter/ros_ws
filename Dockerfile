@@ -12,7 +12,7 @@ MAINTAINER "Daniel Nussbaum"
 # Install dependencies
 RUN rm /etc/apt/sources.list.d/ros2-snapshots.list
 RUN apt-get update -y
-RUN apt-get install -y python3-pip
+RUN apt-get install -y python3-pip python3-opencv
 RUN pip install pyserial
 
 # Create Colcon workspace with external dependencies
