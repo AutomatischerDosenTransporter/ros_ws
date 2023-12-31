@@ -5,25 +5,18 @@ on:
     branches: [ "*" ]
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --no-cache --file Dockerfile --tag registry.nussi.net/adt:${{ github.sha }}
-#    - name: Run the Docker image
-#      run: docker run registry.nussi.net/adt:${{ github.sha }}
-      
-  push-sha:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
     - name: Push the Docker image tag
       run: docker push registry.nussi.net/adt:${{ github.sha }}
       
-  push-main:
+  push-latest:
     runs-on: ubuntu-latest
-    needs: push-sha
+    needs: build-and-push
     if: github.ref == 'refs/heads/master'
     steps:
     - name: Tag the Docker image latest
