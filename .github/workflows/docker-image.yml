@@ -5,26 +5,37 @@ on:
     branches: [ "*" ]
 
 jobs:
-  build:
+  select-runner:
     runs-on: self-hosted
+    outputs:
+     RUNNER: ${{ runner.name }}
+    steps:
+      - run: echo "selected runner ${{ runner.name }}"
+      
+  build:
+    needs: select-runner
+    runs-on: ${{needs.select-runner.outputs.RUNNER}}
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --no-cache --file Dockerfile --tag registry.nussi.net/adt:${{ github.sha }}
       
   push-sha:
-    runs-on: self-hosted
-    needs: build
+    needs: 
+    - build
+    - select-runner
+    runs-on: ${{needs.select-runner.outputs.RUNNER}}
     steps:
     - uses: actions/checkout@v3
     - name: Push the Docker image tag
       run: docker push registry.nussi.net/adt:${{ github.sha }}
 
   push-latest:
-    runs-on: self-hosted
     needs: 
     - push-sha
     - build
+    - select-runner
+    runs-on: ${{needs.select-runner.outputs.RUNNER}}
     if: github.ref == 'refs/heads/master'
     steps:
     - uses: actions/checkout@v3
@@ -34,10 +45,11 @@ jobs:
       run: docker push registry.nussi.net/adt:latest
   
   prune:
-    runs-on: self-hosted
     needs: 
     - push-sha
     - push-latest
+    - select-runner
+    runs-on: ${{needs.select-runner.outputs.RUNNER}}
     steps:
     - uses: actions/checkout@v3
     - name: Prune all the Docker images
