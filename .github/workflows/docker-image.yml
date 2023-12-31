@@ -19,7 +19,22 @@ jobs:
     needs: build-and-push
     if: github.ref_name == 'main'
     steps:
+    - uses: actions/checkout@v3
+    - name: Pull the Docker image latest
+      run:  docker pull registry.nussi.net/adt:${{ github.sha }}
     - name: Tag the Docker image latest
       run:  docker tag registry.nussi.net/adt:${{ github.sha }} registry.nussi.net/adt:latest
     - name: Push the Docker image latest
       run: docker push registry.nussi.net/adt:latest
+
+      
+  prune-images:
+    runs-on: ubuntu-latest
+    needs: 
+    - build-and-push
+    - push-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Prune all the Docker images
+      run: docker image prune --alll --force
+      
