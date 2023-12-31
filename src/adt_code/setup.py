@@ -24,6 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             'basis_roboter_demo = adt_code.basis_roboter_demo:main'
+            'base_roboter_detection = adt_code.base_roboter_detection:main'
         ],
     },
 )
