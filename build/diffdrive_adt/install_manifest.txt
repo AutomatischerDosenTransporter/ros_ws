@@ -1,0 +1,3 @@
+/workspaces/ros_ws/install/diffdrive_adt/lib/libdiffdrive_adt.so
+/workspaces/ros_ws/install/diffdrive_adt/share/diffdrive_adt/cmake/export_diffdrive_adtExport.cmake
+/workspaces/ros_ws/install/diffdrive_adt/share/diffdrive_adt/cmake/export_diffdrive_adtExport-noconfig.cmake

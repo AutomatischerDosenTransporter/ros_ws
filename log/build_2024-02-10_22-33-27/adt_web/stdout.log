@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing adt_web.egg-info/PKG-INFO
+writing dependency_links to adt_web.egg-info/dependency_links.txt
+writing entry points to adt_web.egg-info/entry_points.txt
+writing requirements to adt_web.egg-info/requires.txt
+writing top-level names to adt_web.egg-info/top_level.txt
+reading manifest file 'adt_web.egg-info/SOURCES.txt'
+writing manifest file 'adt_web.egg-info/SOURCES.txt'
+running build_ext
+Creating /workspaces/ros_ws/install/adt_web/lib/python3.10/site-packages/adt-web.egg-link (link to .)
+Installing data_provider script to /workspaces/ros_ws/install/adt_web/lib/adt_web
+
+Installed /workspaces/ros_ws/build/adt_web
+running install_data

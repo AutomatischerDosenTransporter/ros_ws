@@ -1,0 +1,23 @@
+[1.172s] Invoking command in '/workspaces/ros_ws/build/adt_web': PYTHONPATH=/workspaces/ros_ws/build/adt_web/prefix_override:/workspaces/ros_ws/install/adt_web/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /workspaces/ros_ws/build/adt_web/build --no-deps install_data
+[1.350s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[1.350s]   warnings.warn(
+[1.376s] running develop
+[1.376s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.377s]   warnings.warn(
+[1.378s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.378s]   warnings.warn(
+[1.459s] running egg_info
+[1.459s] writing adt_web.egg-info/PKG-INFO
+[1.459s] writing dependency_links to adt_web.egg-info/dependency_links.txt
+[1.459s] writing entry points to adt_web.egg-info/entry_points.txt
+[1.459s] writing requirements to adt_web.egg-info/requires.txt
+[1.459s] writing top-level names to adt_web.egg-info/top_level.txt
+[1.461s] reading manifest file 'adt_web.egg-info/SOURCES.txt'
+[1.461s] writing manifest file 'adt_web.egg-info/SOURCES.txt'
+[1.463s] running build_ext
+[1.463s] Creating /workspaces/ros_ws/install/adt_web/lib/python3.10/site-packages/adt-web.egg-link (link to .)
+[1.464s] Installing data_provider script to /workspaces/ros_ws/install/adt_web/lib/adt_web
+[1.465s] 
+[1.465s] Installed /workspaces/ros_ws/build/adt_web
+[1.465s] running install_data
+[1.543s] Invoked command in '/workspaces/ros_ws/build/adt_web' returned '0': PYTHONPATH=/workspaces/ros_ws/build/adt_web/prefix_override:/workspaces/ros_ws/install/adt_web/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /workspaces/ros_ws/build/adt_web/build --no-deps install_data

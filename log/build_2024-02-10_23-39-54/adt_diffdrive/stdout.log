@@ -1,0 +1,44 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/adt_diffdrive.dir/hardware/diffbot_system.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library libadt_diffdrive.so[0m
+[100%] Built target adt_diffdrive
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive//adt_diffdrive.xml
+-- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/include/adt_diffdrive/adt_diffdrive/arduino_comms.hpp
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/include/adt_diffdrive/adt_diffdrive/diffbot_system.hpp
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/include/adt_diffdrive/adt_diffdrive/visibility_control.h
+-- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/include/adt_diffdrive/adt_diffdrive/wheel.hpp
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/launch/view_robot.launch.py
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/ros2_control/diffbot.ros2_control.xacro
+-- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/urdf/diffbot.materials.xacro
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/urdf/diffbot.urdf.xacro
+-- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/urdf/diffbot_description.urdf.xacro
+-- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/rviz/diffbot.rviz
+-- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/rviz/diffbot_view.rviz
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/launch/diffbot.launch.py
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/config/diffbot_controllers.yaml
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/library_path.sh
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/library_path.dsv
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/ament_index/resource_index/package_run_dependencies/adt_diffdrive
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/ament_index/resource_index/parent_prefix_path/adt_diffdrive
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/path.sh
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/path.dsv
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/local_setup.bash
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/local_setup.sh
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/local_setup.zsh
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/local_setup.dsv
+-- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/package.dsv
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/ament_index/resource_index/packages/adt_diffdrive
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/adt_diffdrive
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/adt_diffdriveConfig.cmake
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/adt_diffdriveConfig-version.cmake
+-- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/package.xml
+-- Installing: /workspaces/ros_ws/install/adt_diffdrive/lib/libadt_diffdrive.so
+-- Set runtime path of "/workspaces/ros_ws/install/adt_diffdrive/lib/libadt_diffdrive.so" to ""
+-- Old export file "/workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/export_adt_diffdriveExport.cmake" will be replaced.  Removing files [/workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/export_adt_diffdriveExport-noconfig.cmake].
+-- Installing: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/export_adt_diffdriveExport.cmake
+-- Installing: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/export_adt_diffdriveExport-noconfig.cmake

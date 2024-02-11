@@ -1,0 +1,6 @@
+Invoking command in '/workspaces/ros_ws/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspaces/ros_ws/src/example_2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/workspaces/ros_ws/install/ros2_control_demo_example_2
+Invoked command in '/workspaces/ros_ws/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspaces/ros_ws/src/example_2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/workspaces/ros_ws/install/ros2_control_demo_example_2
+Invoking command in '/workspaces/ros_ws/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/ros_ws/build/ros2_control_demo_example_2 -- -j16 -l16
+Invoked command in '/workspaces/ros_ws/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/ros_ws/build/ros2_control_demo_example_2 -- -j16 -l16
+Invoking command in '/workspaces/ros_ws/build/ros2_control_demo_example_2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspaces/ros_ws/build/ros2_control_demo_example_2
+Invoked command in '/workspaces/ros_ws/build/ros2_control_demo_example_2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspaces/ros_ws/build/ros2_control_demo_example_2

@@ -1,0 +1,3 @@
+[console_scripts]
+data_provider = adt_web.data_provider:main
+

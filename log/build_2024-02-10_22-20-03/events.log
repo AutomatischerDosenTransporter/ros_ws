@@ -1,0 +1,286 @@
+[0.000000] (-) TimerEvent: {}
+[0.000527] (adt) JobQueued: {'identifier': 'adt', 'dependencies': OrderedDict()}
+[0.000698] (adt_code) JobQueued: {'identifier': 'adt_code', 'dependencies': OrderedDict()}
+[0.000853] (adt_urdf) JobQueued: {'identifier': 'adt_urdf', 'dependencies': OrderedDict()}
+[0.000985] (adt_web) JobQueued: {'identifier': 'adt_web', 'dependencies': OrderedDict()}
+[0.001029] (ros2_control_demo_example_2) JobQueued: {'identifier': 'ros2_control_demo_example_2', 'dependencies': OrderedDict()}
+[0.001058] (adt) JobStarted: {'identifier': 'adt'}
+[0.040027] (adt_code) JobStarted: {'identifier': 'adt_code'}
+[0.068613] (adt_urdf) JobStarted: {'identifier': 'adt_urdf'}
+[0.098191] (adt_web) JobStarted: {'identifier': 'adt_web'}
+[0.099784] (-) TimerEvent: {}
+[0.127732] (ros2_control_demo_example_2) JobStarted: {'identifier': 'ros2_control_demo_example_2'}
+[0.199932] (-) TimerEvent: {}
+[0.300323] (-) TimerEvent: {}
+[0.400678] (-) TimerEvent: {}
+[0.501114] (-) TimerEvent: {}
+[0.601464] (-) TimerEvent: {}
+[0.701859] (-) TimerEvent: {}
+[0.764468] (ros2_control_demo_example_2) JobProgress: {'identifier': 'ros2_control_demo_example_2', 'progress': 'cmake'}
+[0.764883] (ros2_control_demo_example_2) Command: {'cmd': ['/usr/bin/cmake', '/workspaces/ros_ws/src/example_2', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/workspaces/ros_ws/install/ros2_control_demo_example_2'], 'cwd': '/workspaces/ros_ws/build/ros2_control_demo_example_2', 'env': OrderedDict([('HOSTNAME', 'DESKTOP-DGNGM3F'), ('GIT_ASKPASS', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/helpers/browser.sh'), ('HOME', '/home/rosdev'), ('OLDPWD', '/workspaces/ros_ws/src'), ('TERM_PROGRAM_VERSION', '1.86.0'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-f40bca75-4569-40ed-9f7f-358603d653d1.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('WAYLAND_DISPLAY', 'vscode-wayland-6ee4d683-84a0-4587-b7bf-1872652625a9.sock'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-82ac63c1-ab46-4370-954a-3a32392b290c.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('XDG_RUNTIME_DIR', '/tmp/user/1000'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/.X11-unix/X1","/home/rosdev/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/user/1000/vscode-git-8016d46306.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X1'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/workspaces/ros_ws/build/ros2_control_demo_example_2'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.801965] (-) TimerEvent: {}
+[0.896454] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.902059] (-) TimerEvent: {}
+[0.909271] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.988532] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.995805] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.996722] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.997850] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.002172] (-) TimerEvent: {}
+[1.002841] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.061390] (adt_code) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/workspaces/ros_ws/build/adt_code/build', '--no-deps', 'install_data'], 'cwd': '/workspaces/ros_ws/build/adt_code', 'env': {'HOSTNAME': 'DESKTOP-DGNGM3F', 'GIT_ASKPASS': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/helpers/browser.sh', 'HOME': '/home/rosdev', 'OLDPWD': '/workspaces/ros_ws/src', 'TERM_PROGRAM_VERSION': '1.86.0', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-f40bca75-4569-40ed-9f7f-358603d653d1.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/node', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'WAYLAND_DISPLAY': 'vscode-wayland-6ee4d683-84a0-4587-b7bf-1872652625a9.sock', 'ROS_DISTRO': 'humble', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-82ac63c1-ab46-4370-954a-3a32392b290c.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'XDG_RUNTIME_DIR': '/tmp/user/1000', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/.X11-unix/X1","/home/rosdev/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/user/1000/vscode-git-8016d46306.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X1', 'SHELL': '/bin/bash', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/workspaces/ros_ws/build/adt_code', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspaces/ros_ws/build/adt_code/prefix_override:/workspaces/ros_ws/install/adt_code/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.066533] (adt_urdf) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/workspaces/ros_ws/build/adt_urdf/build', '--no-deps', 'install_data'], 'cwd': '/workspaces/ros_ws/build/adt_urdf', 'env': {'HOSTNAME': 'DESKTOP-DGNGM3F', 'GIT_ASKPASS': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/helpers/browser.sh', 'HOME': '/home/rosdev', 'OLDPWD': '/workspaces/ros_ws/src', 'TERM_PROGRAM_VERSION': '1.86.0', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-f40bca75-4569-40ed-9f7f-358603d653d1.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/node', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'WAYLAND_DISPLAY': 'vscode-wayland-6ee4d683-84a0-4587-b7bf-1872652625a9.sock', 'ROS_DISTRO': 'humble', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-82ac63c1-ab46-4370-954a-3a32392b290c.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'XDG_RUNTIME_DIR': '/tmp/user/1000', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/.X11-unix/X1","/home/rosdev/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/user/1000/vscode-git-8016d46306.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X1', 'SHELL': '/bin/bash', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/workspaces/ros_ws/build/adt_urdf', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspaces/ros_ws/build/adt_urdf/prefix_override:/workspaces/ros_ws/install/adt_urdf/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.069519] (adt_web) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/workspaces/ros_ws/build/adt_web/build', '--no-deps', 'install_data'], 'cwd': '/workspaces/ros_ws/build/adt_web', 'env': {'HOSTNAME': 'DESKTOP-DGNGM3F', 'GIT_ASKPASS': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/helpers/browser.sh', 'HOME': '/home/rosdev', 'OLDPWD': '/workspaces/ros_ws/src', 'TERM_PROGRAM_VERSION': '1.86.0', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-f40bca75-4569-40ed-9f7f-358603d653d1.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/node', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'WAYLAND_DISPLAY': 'vscode-wayland-6ee4d683-84a0-4587-b7bf-1872652625a9.sock', 'ROS_DISTRO': 'humble', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-82ac63c1-ab46-4370-954a-3a32392b290c.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'XDG_RUNTIME_DIR': '/tmp/user/1000', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/.X11-unix/X1","/home/rosdev/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/user/1000/vscode-git-8016d46306.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X1', 'SHELL': '/bin/bash', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/workspaces/ros_ws/build/adt_web', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspaces/ros_ws/build/adt_web/prefix_override:/workspaces/ros_ws/install/adt_web/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.070679] (adt) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/workspaces/ros_ws/build/adt/build', '--no-deps', 'install_data'], 'cwd': '/workspaces/ros_ws/build/adt', 'env': {'HOSTNAME': 'DESKTOP-DGNGM3F', 'GIT_ASKPASS': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/helpers/browser.sh', 'HOME': '/home/rosdev', 'OLDPWD': '/workspaces/ros_ws/src', 'TERM_PROGRAM_VERSION': '1.86.0', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-f40bca75-4569-40ed-9f7f-358603d653d1.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/node', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'WAYLAND_DISPLAY': 'vscode-wayland-6ee4d683-84a0-4587-b7bf-1872652625a9.sock', 'ROS_DISTRO': 'humble', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-82ac63c1-ab46-4370-954a-3a32392b290c.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'XDG_RUNTIME_DIR': '/tmp/user/1000', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/.X11-unix/X1","/home/rosdev/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/user/1000/vscode-git-8016d46306.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X1', 'SHELL': '/bin/bash', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/workspaces/ros_ws/build/adt', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspaces/ros_ws/build/adt/prefix_override:/workspaces/ros_ws/install/adt/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.102319] (-) TimerEvent: {}
+[1.134432] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter \n'}
+[1.202453] (-) TimerEvent: {}
+[1.205101] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.231487] (adt_urdf) StderrLine: {'line': b"/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[1.231753] (adt_urdf) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.232597] (adt_code) StderrLine: {'line': b"/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[1.232754] (adt_code) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.237292] (adt_web) StderrLine: {'line': b"/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[1.237600] (adt_web) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.243505] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found hardware_interface: 2.37.0 (/opt/ros/humble/share/hardware_interface/cmake)\n'}
+[1.257527] (adt) StdoutLine: {'line': b'running develop\n'}
+[1.258455] (adt) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.258763] (adt) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.260014] (adt) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.260118] (adt) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.263330] (adt_urdf) StdoutLine: {'line': b'running develop\n'}
+[1.263727] (adt_urdf) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.263893] (adt_urdf) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.264098] (adt_code) StdoutLine: {'line': b'running develop\n'}
+[1.264407] (adt_code) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.264512] (adt_code) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.265246] (adt_urdf) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.265345] (adt_urdf) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.265979] (adt_code) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.266103] (adt_code) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.269929] (adt_web) StdoutLine: {'line': b'running develop\n'}
+[1.270284] (adt_web) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.270428] (adt_web) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.271833] (adt_web) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[1.271935] (adt_web) StderrLine: {'line': b'  warnings.warn(\n'}
+[1.302614] (-) TimerEvent: {}
+[1.308464] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.315561] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.326566] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.344036] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.355191] (adt_code) StdoutLine: {'line': b'running egg_info\n'}
+[1.355386] (adt_code) StdoutLine: {'line': b'creating adt_code.egg-info\n'}
+[1.355564] (adt_code) StdoutLine: {'line': b'writing adt_code.egg-info/PKG-INFO\n'}
+[1.355767] (adt_urdf) StdoutLine: {'line': b'running egg_info\n'}
+[1.356057] (adt_urdf) StdoutLine: {'line': b'creating adt_urdf.egg-info\n'}
+[1.356193] (adt_code) StdoutLine: {'line': b'writing dependency_links to adt_code.egg-info/dependency_links.txt\n'}
+[1.356303] (adt_urdf) StdoutLine: {'line': b'writing adt_urdf.egg-info/PKG-INFO\n'}
+[1.356553] (adt_code) StdoutLine: {'line': b'writing entry points to adt_code.egg-info/entry_points.txt\n'}
+[1.356657] (adt_code) StdoutLine: {'line': b'writing requirements to adt_code.egg-info/requires.txt\n'}
+[1.356757] (adt_urdf) StdoutLine: {'line': b'writing dependency_links to adt_urdf.egg-info/dependency_links.txt\n'}
+[1.356918] (adt_urdf) StdoutLine: {'line': b'writing entry points to adt_urdf.egg-info/entry_points.txt\n'}
+[1.356998] (adt_urdf) StdoutLine: {'line': b'writing requirements to adt_urdf.egg-info/requires.txt\n'}
+[1.357069] (adt_urdf) StdoutLine: {'line': b'writing top-level names to adt_urdf.egg-info/top_level.txt\n'}
+[1.357142] (adt_code) StdoutLine: {'line': b'writing top-level names to adt_code.egg-info/top_level.txt\n'}
+[1.357212] (adt_code) StdoutLine: {'line': b"writing manifest file 'adt_code.egg-info/SOURCES.txt'\n"}
+[1.357279] (adt_urdf) StdoutLine: {'line': b"writing manifest file 'adt_urdf.egg-info/SOURCES.txt'\n"}
+[1.357434] (adt) StdoutLine: {'line': b'running egg_info\n'}
+[1.357517] (adt) StdoutLine: {'line': b'creating adt.egg-info\n'}
+[1.357753] (adt) StdoutLine: {'line': b'writing adt.egg-info/PKG-INFO\n'}
+[1.357917] (adt_code) StdoutLine: {'line': b"reading manifest file 'adt_code.egg-info/SOURCES.txt'\n"}
+[1.358063] (adt_urdf) StdoutLine: {'line': b"reading manifest file 'adt_urdf.egg-info/SOURCES.txt'\n"}
+[1.358272] (adt) StdoutLine: {'line': b'writing dependency_links to adt.egg-info/dependency_links.txt\n'}
+[1.358440] (adt) StdoutLine: {'line': b'writing entry points to adt.egg-info/entry_points.txt\n'}
+[1.358577] (adt) StdoutLine: {'line': b'writing requirements to adt.egg-info/requires.txt\n'}
+[1.358843] (adt) StdoutLine: {'line': b'writing top-level names to adt.egg-info/top_level.txt\n'}
+[1.358896] (adt_code) StdoutLine: {'line': b"writing manifest file 'adt_code.egg-info/SOURCES.txt'\n"}
+[1.358948] (adt) StdoutLine: {'line': b"writing manifest file 'adt.egg-info/SOURCES.txt'\n"}
+[1.358992] (adt_urdf) StdoutLine: {'line': b"writing manifest file 'adt_urdf.egg-info/SOURCES.txt'\n"}
+[1.359422] (adt_urdf) StdoutLine: {'line': b'running build_ext\n'}
+[1.359619] (adt_urdf) StdoutLine: {'line': b'Creating /workspaces/ros_ws/install/adt_urdf/lib/python3.10/site-packages/adt-urdf.egg-link (link to .)\n'}
+[1.359803] (adt_code) StdoutLine: {'line': b'running build_ext\n'}
+[1.360037] (adt_code) StdoutLine: {'line': b'Creating /workspaces/ros_ws/install/adt_code/lib/python3.10/site-packages/adt-code.egg-link (link to .)\n'}
+[1.360155] (adt) StdoutLine: {'line': b"reading manifest file 'adt.egg-info/SOURCES.txt'\n"}
+[1.360259] (adt_urdf) StdoutLine: {'line': b'Installing state_publisher script to /workspaces/ros_ws/install/adt_urdf/lib/adt_urdf\n'}
+[1.360533] (adt_urdf) StdoutLine: {'line': b'\n'}
+[1.360656] (adt_urdf) StdoutLine: {'line': b'Installed /workspaces/ros_ws/build/adt_urdf\n'}
+[1.360887] (adt_urdf) StdoutLine: {'line': b'running install_data\n'}
+[1.361052] (adt_urdf) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_urdf/share/ament_index\n'}
+[1.361305] (adt) StdoutLine: {'line': b"writing manifest file 'adt.egg-info/SOURCES.txt'\n"}
+[1.361614] (adt_urdf) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_urdf/share/ament_index/resource_index\n'}
+[1.361753] (adt_urdf) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_urdf/share/ament_index/resource_index/packages\n'}
+[1.361862] (adt_urdf) StdoutLine: {'line': b'copying resource/adt_urdf -> /workspaces/ros_ws/install/adt_urdf/share/ament_index/resource_index/packages\n'}
+[1.362121] (adt_code) StdoutLine: {'line': b'Installing basis_roboter_demo script to /workspaces/ros_ws/install/adt_code/lib/adt_code\n'}
+[1.362178] (adt_urdf) StdoutLine: {'line': b'copying package.xml -> /workspaces/ros_ws/install/adt_urdf/share/adt_urdf\n'}
+[1.362223] (adt_urdf) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_urdf/share/adt_urdf/launch\n'}
+[1.362310] (adt_code) StdoutLine: {'line': b'\n'}
+[1.362440] (adt_code) StdoutLine: {'line': b'Installed /workspaces/ros_ws/build/adt_code\n'}
+[1.362494] (adt_code) StdoutLine: {'line': b'running install_data\n'}
+[1.362541] (adt_urdf) StdoutLine: {'line': b'copying launch/view_basis_roboter.launch.py -> /workspaces/ros_ws/install/adt_urdf/share/adt_urdf/launch\n'}
+[1.362586] (adt_code) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_code/share/ament_index\n'}
+[1.362628] (adt_code) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_code/share/ament_index/resource_index\n'}
+[1.362667] (adt_code) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_code/share/ament_index/resource_index/packages\n'}
+[1.362704] (adt_urdf) StdoutLine: {'line': b'copying launch/demo.launch.py -> /workspaces/ros_ws/install/adt_urdf/share/adt_urdf/launch\n'}
+[1.362743] (adt_urdf) StdoutLine: {'line': b'copying urdf/r2d2.urdf.xml -> /workspaces/ros_ws/install/adt_urdf/share/adt_urdf\n'}
+[1.362783] (adt_urdf) StdoutLine: {'line': b'copying urdf/r2d2.rviz -> /workspaces/ros_ws/install/adt_urdf/share/adt_urdf\n'}
+[1.362821] (adt_code) StdoutLine: {'line': b'copying resource/adt_code -> /workspaces/ros_ws/install/adt_code/share/ament_index/resource_index/packages\n'}
+[1.362860] (adt_code) StdoutLine: {'line': b'copying package.xml -> /workspaces/ros_ws/install/adt_code/share/adt_code\n'}
+[1.362899] (adt_code) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_code/share/adt_code/launch\n'}
+[1.362937] (adt_urdf) StdoutLine: {'line': b'copying urdf/basis_roboter.urdf.xacro -> /workspaces/ros_ws/install/adt_urdf/share/adt_urdf\n'}
+[1.362973] (adt_urdf) StdoutLine: {'line': b'copying urdf/service_roboter.urdf.xacro -> /workspaces/ros_ws/install/adt_urdf/share/adt_urdf\n'}
+[1.363010] (adt_code) StdoutLine: {'line': b'copying launch/basis_roboter_demo.launch.py -> /workspaces/ros_ws/install/adt_code/share/adt_code/launch\n'}
+[1.363046] (adt) StdoutLine: {'line': b'running build_ext\n'}
+[1.363133] (adt) StdoutLine: {'line': b'Creating /workspaces/ros_ws/install/adt/lib/python3.10/site-packages/adt.egg-link (link to .)\n'}
+[1.363179] (adt) StdoutLine: {'line': b'Installing base_drive_serial_bridge script to /workspaces/ros_ws/install/adt/lib/adt\n'}
+[1.363296] (adt) StdoutLine: {'line': b'Installing base_vision_dosen_detector script to /workspaces/ros_ws/install/adt/lib/adt\n'}
+[1.363511] (adt) StdoutLine: {'line': b'\n'}
+[1.363566] (adt) StdoutLine: {'line': b'Installed /workspaces/ros_ws/build/adt\n'}
+[1.363746] (adt) StdoutLine: {'line': b'running install_data\n'}
+[1.363849] (adt) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt/share/ament_index\n'}
+[1.364021] (adt) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt/share/ament_index/resource_index\n'}
+[1.364078] (adt) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt/share/ament_index/resource_index/packages\n'}
+[1.364123] (adt) StdoutLine: {'line': b'copying resource/adt -> /workspaces/ros_ws/install/adt/share/ament_index/resource_index/packages\n'}
+[1.364219] (adt) StdoutLine: {'line': b'copying package.xml -> /workspaces/ros_ws/install/adt/share/adt\n'}
+[1.365194] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.367413] (adt_web) StdoutLine: {'line': b'running egg_info\n'}
+[1.367517] (adt_web) StdoutLine: {'line': b'creating adt_web.egg-info\n'}
+[1.367730] (adt_web) StdoutLine: {'line': b'writing adt_web.egg-info/PKG-INFO\n'}
+[1.367973] (adt_web) StdoutLine: {'line': b'writing dependency_links to adt_web.egg-info/dependency_links.txt\n'}
+[1.368121] (adt_web) StdoutLine: {'line': b'writing entry points to adt_web.egg-info/entry_points.txt\n'}
+[1.368238] (adt_web) StdoutLine: {'line': b'writing requirements to adt_web.egg-info/requires.txt\n'}
+[1.368556] (adt_web) StdoutLine: {'line': b'writing top-level names to adt_web.egg-info/top_level.txt\n'}
+[1.368767] (adt_web) StdoutLine: {'line': b"writing manifest file 'adt_web.egg-info/SOURCES.txt'\n"}
+[1.370421] (adt_web) StdoutLine: {'line': b"reading manifest file 'adt_web.egg-info/SOURCES.txt'\n"}
+[1.371021] (adt_web) StdoutLine: {'line': b"writing manifest file 'adt_web.egg-info/SOURCES.txt'\n"}
+[1.372408] (adt_web) StdoutLine: {'line': b'running build_ext\n'}
+[1.372669] (adt_web) StdoutLine: {'line': b'Creating /workspaces/ros_ws/install/adt_web/lib/python3.10/site-packages/adt-web.egg-link (link to .)\n'}
+[1.373657] (adt_web) StdoutLine: {'line': b'Installing data_provider script to /workspaces/ros_ws/install/adt_web/lib/adt_web\n'}
+[1.374014] (adt_web) StdoutLine: {'line': b'\n'}
+[1.374141] (adt_web) StdoutLine: {'line': b'Installed /workspaces/ros_ws/build/adt_web\n'}
+[1.374250] (adt_web) StdoutLine: {'line': b'running install_data\n'}
+[1.374493] (adt_web) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_web/share/ament_index\n'}
+[1.374595] (adt_web) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_web/share/ament_index/resource_index\n'}
+[1.374649] (adt_web) StdoutLine: {'line': b'creating /workspaces/ros_ws/install/adt_web/share/ament_index/resource_index/packages\n'}
+[1.374749] (adt_web) StdoutLine: {'line': b'copying resource/adt_web -> /workspaces/ros_ws/install/adt_web/share/ament_index/resource_index/packages\n'}
+[1.374939] (adt_web) StdoutLine: {'line': b'copying package.xml -> /workspaces/ros_ws/install/adt_web/share/adt_web\n'}
+[1.390810] (adt) CommandEnded: {'returncode': 0}
+[1.402749] (-) TimerEvent: {}
+[1.435858] (adt) JobEnded: {'identifier': 'adt', 'rc': 0}
+[1.437943] (adt_code) CommandEnded: {'returncode': 0}
+[1.477599] (adt_code) JobEnded: {'identifier': 'adt_code', 'rc': 0}
+[1.478706] (adt_urdf) CommandEnded: {'returncode': 0}
+[1.502997] (-) TimerEvent: {}
+[1.526439] (adt_urdf) JobEnded: {'identifier': 'adt_urdf', 'rc': 0}
+[1.527236] (adt_web) CommandEnded: {'returncode': 0}
+[1.577510] (adt_web) JobEnded: {'identifier': 'adt_web', 'rc': 0}
+[1.603126] (-) TimerEvent: {}
+[1.703510] (-) TimerEvent: {}
+[1.803858] (-) TimerEvent: {}
+[1.904181] (-) TimerEvent: {}
+[1.936874] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.939742] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.978059] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND\n'}
+[2.004303] (-) TimerEvent: {}
+[2.008136] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[2.011762] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND\n'}
+[2.018928] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[2.026020] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND\n'}
+[2.031546] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND\n'}
+[2.036759] (ros2_control_demo_example_2) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.047520] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Looking for C++ include pthread.h\n'}
+[2.102019] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Looking for C++ include pthread.h - found\n'}
+[2.102421] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[2.104383] (-) TimerEvent: {}
+[2.158515] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[2.159424] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[2.204510] (-) TimerEvent: {}
+[2.304868] (-) TimerEvent: {}
+[2.322872] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Found ament_cmake_pytest: 1.3.7 (/opt/ros/humble/share/ament_cmake_pytest/cmake)\n'}
+[2.404971] (-) TimerEvent: {}
+[2.505283] (-) TimerEvent: {}
+[2.605643] (-) TimerEvent: {}
+[2.705998] (-) TimerEvent: {}
+[2.754006] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.806112] (-) TimerEvent: {}
+[2.812921] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Generating done\n'}
+[2.814112] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Build files have been written to: /workspaces/ros_ws/build/ros2_control_demo_example_2\n'}
+[2.820560] (ros2_control_demo_example_2) CommandEnded: {'returncode': 0}
+[2.821075] (ros2_control_demo_example_2) JobProgress: {'identifier': 'ros2_control_demo_example_2', 'progress': 'build'}
+[2.822042] (ros2_control_demo_example_2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/workspaces/ros_ws/build/ros2_control_demo_example_2', '--', '-j16', '-l16'], 'cwd': '/workspaces/ros_ws/build/ros2_control_demo_example_2', 'env': OrderedDict([('HOSTNAME', 'DESKTOP-DGNGM3F'), ('GIT_ASKPASS', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/helpers/browser.sh'), ('HOME', '/home/rosdev'), ('OLDPWD', '/workspaces/ros_ws/src'), ('TERM_PROGRAM_VERSION', '1.86.0'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-f40bca75-4569-40ed-9f7f-358603d653d1.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('WAYLAND_DISPLAY', 'vscode-wayland-6ee4d683-84a0-4587-b7bf-1872652625a9.sock'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-82ac63c1-ab46-4370-954a-3a32392b290c.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('XDG_RUNTIME_DIR', '/tmp/user/1000'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/.X11-unix/X1","/home/rosdev/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/user/1000/vscode-git-8016d46306.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X1'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/workspaces/ros_ws/build/ros2_control_demo_example_2'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[2.851589] (ros2_control_demo_example_2) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ros2_control_demo_example_2.dir/hardware/diffbot_system.cpp.o\x1b[0m\n'}
+[2.906225] (-) TimerEvent: {}
+[3.006570] (-) TimerEvent: {}
+[3.106923] (-) TimerEvent: {}
+[3.207320] (-) TimerEvent: {}
+[3.307696] (-) TimerEvent: {}
+[3.408040] (-) TimerEvent: {}
+[3.508419] (-) TimerEvent: {}
+[3.608908] (-) TimerEvent: {}
+[3.709281] (-) TimerEvent: {}
+[3.809639] (-) TimerEvent: {}
+[3.910067] (-) TimerEvent: {}
+[4.010424] (-) TimerEvent: {}
+[4.110812] (-) TimerEvent: {}
+[4.211170] (-) TimerEvent: {}
+[4.311529] (-) TimerEvent: {}
+[4.411864] (-) TimerEvent: {}
+[4.512232] (-) TimerEvent: {}
+[4.612589] (-) TimerEvent: {}
+[4.712962] (-) TimerEvent: {}
+[4.813301] (-) TimerEvent: {}
+[4.913651] (-) TimerEvent: {}
+[5.014055] (-) TimerEvent: {}
+[5.114500] (-) TimerEvent: {}
+[5.215064] (-) TimerEvent: {}
+[5.315453] (-) TimerEvent: {}
+[5.415804] (-) TimerEvent: {}
+[5.516174] (-) TimerEvent: {}
+[5.616536] (-) TimerEvent: {}
+[5.717026] (-) TimerEvent: {}
+[5.735514] (ros2_control_demo_example_2) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libros2_control_demo_example_2.so\x1b[0m\n'}
+[5.817144] (-) TimerEvent: {}
+[5.917501] (-) TimerEvent: {}
+[5.937339] (ros2_control_demo_example_2) StdoutLine: {'line': b'[100%] Built target ros2_control_demo_example_2\n'}
+[5.945058] (ros2_control_demo_example_2) CommandEnded: {'returncode': 0}
+[5.961692] (ros2_control_demo_example_2) JobProgress: {'identifier': 'ros2_control_demo_example_2', 'progress': 'install'}
+[5.968466] (ros2_control_demo_example_2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/workspaces/ros_ws/build/ros2_control_demo_example_2'], 'cwd': '/workspaces/ros_ws/build/ros2_control_demo_example_2', 'env': OrderedDict([('HOSTNAME', 'DESKTOP-DGNGM3F'), ('GIT_ASKPASS', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/helpers/browser.sh'), ('HOME', '/home/rosdev'), ('OLDPWD', '/workspaces/ros_ws/src'), ('TERM_PROGRAM_VERSION', '1.86.0'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-f40bca75-4569-40ed-9f7f-358603d653d1.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('WAYLAND_DISPLAY', 'vscode-wayland-6ee4d683-84a0-4587-b7bf-1872652625a9.sock'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-82ac63c1-ab46-4370-954a-3a32392b290c.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/vscode/vscode-server/bin/linux-x64/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('XDG_RUNTIME_DIR', '/tmp/user/1000'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/.X11-unix/X1","/home/rosdev/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/user/1000/vscode-git-8016d46306.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X1'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/workspaces/ros_ws/build/ros2_control_demo_example_2'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[5.974991] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.975364] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[5.976124] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2//ros2_control_demo_example_2.xml\n'}
+[5.983193] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/include/ros2_control_demo_example_2/ros2_control_demo_example_2/diffbot_system.hpp\n'}
+[5.992736] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/include/ros2_control_demo_example_2/ros2_control_demo_example_2/visibility_control.h\n'}
+[6.005820] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/launch/view_robot.launch.py\n'}
+[6.013304] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/ros2_control/diffbot.ros2_control.xacro\n'}
+[6.017592] (-) TimerEvent: {}
+[6.019728] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/urdf/diffbot.urdf.xacro\n'}
+[6.026500] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/launch/diffbot.launch.py\n'}
+[6.033307] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/config/diffbot_controllers.yaml\n'}
+[6.041627] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/library_path.sh\n'}
+[6.048308] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/library_path.dsv\n'}
+[6.054147] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ament_index/resource_index/package_run_dependencies/ros2_control_demo_example_2\n'}
+[6.059272] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ament_index/resource_index/parent_prefix_path/ros2_control_demo_example_2\n'}
+[6.064413] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/ament_prefix_path.sh\n'}
+[6.069581] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/ament_prefix_path.dsv\n'}
+[6.074555] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/path.sh\n'}
+[6.080320] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/environment/path.dsv\n'}
+[6.086196] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/local_setup.bash\n'}
+[6.093063] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/local_setup.sh\n'}
+[6.099105] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/local_setup.zsh\n'}
+[6.106466] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/local_setup.dsv\n'}
+[6.111780] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.dsv\n'}
+[6.117555] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ament_index/resource_index/packages/ros2_control_demo_example_2\n'}
+[6.117801] (-) TimerEvent: {}
+[6.123203] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/ros2_control_demo_example_2\n'}
+[6.130193] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[6.135575] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[6.140368] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/ros2_control_demo_example_2Config.cmake\n'}
+[6.146229] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/ros2_control_demo_example_2Config-version.cmake\n'}
+[6.151131] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Symlinking: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/package.xml\n'}
+[6.156178] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Installing: /workspaces/ros_ws/install/ros2_control_demo_example_2/lib/libros2_control_demo_example_2.so\n'}
+[6.157374] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Set runtime path of "/workspaces/ros_ws/install/ros2_control_demo_example_2/lib/libros2_control_demo_example_2.so" to ""\n'}
+[6.157619] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Installing: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/export_ros2_control_demo_example_2Export.cmake\n'}
+[6.157817] (ros2_control_demo_example_2) StdoutLine: {'line': b'-- Installing: /workspaces/ros_ws/install/ros2_control_demo_example_2/share/ros2_control_demo_example_2/cmake/export_ros2_control_demo_example_2Export-noconfig.cmake\n'}
+[6.159674] (ros2_control_demo_example_2) CommandEnded: {'returncode': 0}
+[6.218039] (-) TimerEvent: {}
+[6.251860] (ros2_control_demo_example_2) JobEnded: {'identifier': 'ros2_control_demo_example_2', 'rc': 0}
+[6.252996] (-) EventReactorShutdown: {}

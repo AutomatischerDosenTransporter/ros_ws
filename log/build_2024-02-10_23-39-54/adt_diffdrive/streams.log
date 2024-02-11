@@ -1,0 +1,48 @@
+[0.419s] Invoking command in '/workspaces/ros_ws/build/adt_diffdrive': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/ros_ws/build/adt_diffdrive -- -j16 -l16
+[0.590s] [ 50%] [32mBuilding CXX object CMakeFiles/adt_diffdrive.dir/hardware/diffbot_system.cpp.o[0m
+[3.524s] [100%] [32m[1mLinking CXX shared library libadt_diffdrive.so[0m
+[3.637s] [100%] Built target adt_diffdrive
+[3.644s] Invoked command in '/workspaces/ros_ws/build/adt_diffdrive' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/ros_ws/build/adt_diffdrive -- -j16 -l16
+[3.664s] Invoking command in '/workspaces/ros_ws/build/adt_diffdrive': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspaces/ros_ws/build/adt_diffdrive
+[3.669s] -- Install configuration: ""
+[3.669s] -- Execute custom install script
+[3.670s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive//adt_diffdrive.xml
+[3.670s] -- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/include/adt_diffdrive/adt_diffdrive/arduino_comms.hpp
+[3.675s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/include/adt_diffdrive/adt_diffdrive/diffbot_system.hpp
+[3.675s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/include/adt_diffdrive/adt_diffdrive/visibility_control.h
+[3.675s] -- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/include/adt_diffdrive/adt_diffdrive/wheel.hpp
+[3.681s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/launch/view_robot.launch.py
+[3.681s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/ros2_control/diffbot.ros2_control.xacro
+[3.682s] -- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/urdf/diffbot.materials.xacro
+[3.687s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/urdf/diffbot.urdf.xacro
+[3.687s] -- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/urdf/diffbot_description.urdf.xacro
+[3.693s] -- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/rviz/diffbot.rviz
+[3.698s] -- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/rviz/diffbot_view.rviz
+[3.703s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/launch/diffbot.launch.py
+[3.703s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/config/diffbot_controllers.yaml
+[3.703s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/library_path.sh
+[3.703s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/library_path.dsv
+[3.704s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/ament_index/resource_index/package_run_dependencies/adt_diffdrive
+[3.704s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/ament_index/resource_index/parent_prefix_path/adt_diffdrive
+[3.704s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/ament_prefix_path.sh
+[3.704s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/ament_prefix_path.dsv
+[3.704s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/path.sh
+[3.704s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/environment/path.dsv
+[3.705s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/local_setup.bash
+[3.705s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/local_setup.sh
+[3.705s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/local_setup.zsh
+[3.705s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/local_setup.dsv
+[3.705s] -- Symlinking: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/package.dsv
+[3.711s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/ament_index/resource_index/packages/adt_diffdrive
+[3.712s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/adt_diffdrive
+[3.712s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/ament_cmake_export_targets-extras.cmake
+[3.712s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.712s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/adt_diffdriveConfig.cmake
+[3.712s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/adt_diffdriveConfig-version.cmake
+[3.712s] -- Up-to-date symlink: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/package.xml
+[3.712s] -- Installing: /workspaces/ros_ws/install/adt_diffdrive/lib/libadt_diffdrive.so
+[3.714s] -- Set runtime path of "/workspaces/ros_ws/install/adt_diffdrive/lib/libadt_diffdrive.so" to ""
+[3.714s] -- Old export file "/workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/export_adt_diffdriveExport.cmake" will be replaced.  Removing files [/workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/export_adt_diffdriveExport-noconfig.cmake].
+[3.714s] -- Installing: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/export_adt_diffdriveExport.cmake
+[3.714s] -- Installing: /workspaces/ros_ws/install/adt_diffdrive/share/adt_diffdrive/cmake/export_adt_diffdriveExport-noconfig.cmake
+[3.716s] Invoked command in '/workspaces/ros_ws/build/adt_diffdrive' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspaces/ros_ws/build/adt_diffdrive

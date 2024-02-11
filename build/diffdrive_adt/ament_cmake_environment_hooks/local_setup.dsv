@@ -1,0 +1,3 @@
+source;share/diffdrive_adt/environment/ament_prefix_path.sh
+source;share/diffdrive_adt/environment/library_path.sh
+source;share/diffdrive_adt/environment/path.sh
