@@ -11,7 +11,8 @@ MAINTAINER "Daniel Nussbaum"
 # Install dependencies
 RUN rm /etc/apt/sources.list.d/ros2-snapshots.list
 RUN apt-get update -y
-#RUN apt-get install -y python3-pip python3-opencv
+RUN RUN apt-get install -y python3-opencv
+RUN apt-get install -y python3-pip
 RUN pip install pyserial
 FROM build_base_part as build_dependencies_part
 
