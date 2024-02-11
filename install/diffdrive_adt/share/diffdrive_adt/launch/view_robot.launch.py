@@ -1,1 +1,0 @@
-/workspaces/ros_ws/src/diffdrive_adt/description/launch/view_robot.launch.py

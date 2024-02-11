@@ -1,9 +1,0 @@
-source;share/adt_urdf/hook/pythonpath.ps1
-source;share/adt_urdf/hook/pythonpath.dsv
-source;share/adt_urdf/hook/pythonpath.sh
-source;share/adt_urdf/hook/ament_prefix_path.ps1
-source;share/adt_urdf/hook/ament_prefix_path.dsv
-source;share/adt_urdf/hook/ament_prefix_path.sh
-source;../../build/adt_urdf/share/adt_urdf/hook/pythonpath_develop.ps1
-source;../../build/adt_urdf/share/adt_urdf/hook/pythonpath_develop.dsv
-source;../../build/adt_urdf/share/adt_urdf/hook/pythonpath_develop.sh

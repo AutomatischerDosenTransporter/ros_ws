@@ -1,1 +1,0 @@
-/workspaces/ros_ws/build/adt_diffdrive/ament_cmake_core/adt_diffdriveConfig.cmake
