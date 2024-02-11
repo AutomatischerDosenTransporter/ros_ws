@@ -2,7 +2,7 @@ package.xml
 setup.cfg
 setup.py
 adt_code/__init__.py
-adt_code/basis_roboter_demo.py
+adt_code/arduino_bridge.py
 adt_code.egg-info/PKG-INFO
 adt_code.egg-info/SOURCES.txt
 adt_code.egg-info/dependency_links.txt
@@ -10,5 +10,4 @@ adt_code.egg-info/entry_points.txt
 adt_code.egg-info/requires.txt
 adt_code.egg-info/top_level.txt
 adt_code.egg-info/zip-safe
-launch/basis_roboter_demo.launch.py
 resource/adt_code

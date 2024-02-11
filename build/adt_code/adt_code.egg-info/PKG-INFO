@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: adt-code
 Version: 0.0.0
-Summary: TODO: Package description
+Summary: This package contains code from the ADT.
 Home-page: UNKNOWN
-Maintainer: sans
-Maintainer-email: sans@todo.todo
-License: TODO: License declaration
+Maintainer: Daniel Nussbaum
+Maintainer-email: daniel.nussbaum@htlstp.at
+License: MIT
 Platform: UNKNOWN
 
 UNKNOWN

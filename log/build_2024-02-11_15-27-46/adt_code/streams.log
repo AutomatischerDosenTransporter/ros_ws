@@ -1,0 +1,21 @@
+[1.034s] Invoking command in '/workspaces/ros_ws/build/adt_code': PYTHONPATH=/workspaces/ros_ws/build/adt_code/prefix_override:/workspaces/ros_ws/install/adt_code/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /workspaces/ros_ws/build/adt_code/build --no-deps install_data
+[1.427s] running develop
+[1.428s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.428s]   warnings.warn(
+[1.430s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.430s]   warnings.warn(
+[1.600s] running egg_info
+[1.600s] writing adt_code.egg-info/PKG-INFO
+[1.601s] writing dependency_links to adt_code.egg-info/dependency_links.txt
+[1.601s] writing entry points to adt_code.egg-info/entry_points.txt
+[1.602s] writing requirements to adt_code.egg-info/requires.txt
+[1.602s] writing top-level names to adt_code.egg-info/top_level.txt
+[1.603s] reading manifest file 'adt_code.egg-info/SOURCES.txt'
+[1.605s] writing manifest file 'adt_code.egg-info/SOURCES.txt'
+[1.608s] running build_ext
+[1.608s] Creating /workspaces/ros_ws/install/adt_code/lib/python3.10/site-packages/adt-code.egg-link (link to .)
+[1.610s] Installing arduino_bridge script to /workspaces/ros_ws/install/adt_code/lib/adt_code
+[1.610s] 
+[1.611s] Installed /workspaces/ros_ws/build/adt_code
+[1.611s] running install_data
+[1.652s] Invoked command in '/workspaces/ros_ws/build/adt_code' returned '0': PYTHONPATH=/workspaces/ros_ws/build/adt_code/prefix_override:/workspaces/ros_ws/install/adt_code/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /workspaces/ros_ws/build/adt_code/build --no-deps install_data
