@@ -1,4 +1,0 @@
-[console_scripts]
-base_drive_serial_bridge = adt.base_drive_serial_bridge:main
-base_vision_dosen_detector = adt.base_vision_dosen_detector:main
-

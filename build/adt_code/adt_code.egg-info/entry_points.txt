@@ -1,3 +1,0 @@
-[console_scripts]
-arduino_bridge = adt_code.arduino_bridge:main
-

@@ -1,1 +1,0 @@
-/workspaces/ros_ws/src/adt_urdf/setup.py

@@ -1,3 +1,0 @@
-[console_scripts]
-state_publisher = adt_urdf.state_publisher:main
-

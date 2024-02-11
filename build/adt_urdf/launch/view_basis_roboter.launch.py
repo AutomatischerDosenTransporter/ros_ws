@@ -1,1 +1,0 @@
-/workspaces/ros_ws/src/adt_urdf/launch/view_basis_roboter.launch.py
