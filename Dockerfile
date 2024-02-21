@@ -12,7 +12,7 @@ MAINTAINER "Daniel Nussbaum"
 RUN rm /etc/apt/sources.list.d/ros2-snapshots.list
 RUN apt-get update -y
 #RUN RUN apt-get install -y python3-opencv
-RUN apt-get install -y python3-pip
+RUN apt-get install -y python3-pip ros-humble-ros2-control ros-humble-ros2-controllers
 RUN pip install pyserial
 FROM build_base_part as build_dependencies_part
 
