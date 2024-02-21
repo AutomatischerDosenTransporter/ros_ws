@@ -1,6 +1,0 @@
-Invoking command in '/workspaces/ros_ws/build/diffdrive_adt': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspaces/ros_ws/src/diffdrive_adt -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/workspaces/ros_ws/install/diffdrive_adt
-Invoked command in '/workspaces/ros_ws/build/diffdrive_adt' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspaces/ros_ws/src/diffdrive_adt -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/workspaces/ros_ws/install/diffdrive_adt
-Invoking command in '/workspaces/ros_ws/build/diffdrive_adt': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/ros_ws/build/diffdrive_adt -- -j16 -l16
-Invoked command in '/workspaces/ros_ws/build/diffdrive_adt' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/ros_ws/build/diffdrive_adt -- -j16 -l16
-Invoking command in '/workspaces/ros_ws/build/diffdrive_adt': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspaces/ros_ws/build/diffdrive_adt
-Invoked command in '/workspaces/ros_ws/build/diffdrive_adt' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspaces/ros_ws/build/diffdrive_adt

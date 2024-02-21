@@ -1,2 +1,0 @@
-Invoking command in '/workspaces/ros_ws/build/adt_diffdrive': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/ros_ws/build/adt_diffdrive -- -j16 -l16
-Invoked command in '/workspaces/ros_ws/build/adt_diffdrive' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/ros_ws/build/adt_diffdrive -- -j16 -l16
