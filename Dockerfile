@@ -25,5 +25,4 @@ FROM build_dependencies_part as build_source_part
 # Build the base Colcon workspace, installing dependencies first.
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash
 RUN apt-get update -y
-RUN rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 RUN colcon build --symlink-install
