@@ -44,7 +44,7 @@ def generate_test_description():
     launch_include = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("ADT_HARDWARE"),
+                get_package_share_directory("adt_hardware"),
                 "launch/view_robot.launch.py",
             )
         ),

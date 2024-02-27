@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ADT_HARDWARE/diffbot_system.hpp"
+#include "adt_hardware/basis_motor_bridge.hpp"
 
 #include <chrono>
 #include <cmath>
@@ -25,9 +25,9 @@
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
 #include "rclcpp/rclcpp.hpp"
 
-namespace ADT_HARDWARE
+namespace adt_hardware
 {
-hardware_interface::CallbackReturn ArduinoSerialBridge::on_init(
+hardware_interface::CallbackReturn BasisMotorSerialBridge::on_init(
   const hardware_interface::HardwareInfo & info)
 {
   if (
@@ -49,11 +49,11 @@ hardware_interface::CallbackReturn ArduinoSerialBridge::on_init(
 
   for (const hardware_interface::ComponentInfo & joint : info_.joints)
   {
-    // DiffBotSystem has exactly two states and one command interface on each joint
+    // service_roboterSystem has exactly two states and one command interface on each joint
     if (joint.command_interfaces.size() != 1)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("ArduinoSerialBridge"),
+        rclcpp::get_logger("BasisMotorSerialBridge"),
         "Joint '%s' has %zu command interfaces found. 1 expected.", joint.name.c_str(),
         joint.command_interfaces.size());
       return hardware_interface::CallbackReturn::ERROR;
@@ -62,7 +62,7 @@ hardware_interface::CallbackReturn ArduinoSerialBridge::on_init(
     if (joint.command_interfaces[0].name != hardware_interface::HW_IF_VELOCITY)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("ArduinoSerialBridge"),
+        rclcpp::get_logger("BasisMotorSerialBridge"),
         "Joint '%s' have %s command interfaces found. '%s' expected.", joint.name.c_str(),
         joint.command_interfaces[0].name.c_str(), hardware_interface::HW_IF_VELOCITY);
       return hardware_interface::CallbackReturn::ERROR;
@@ -71,7 +71,7 @@ hardware_interface::CallbackReturn ArduinoSerialBridge::on_init(
     if (joint.state_interfaces.size() != 2)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("ArduinoSerialBridge"),
+        rclcpp::get_logger("BasisMotorSerialBridge"),
         "Joint '%s' has %zu state interface. 2 expected.", joint.name.c_str(),
         joint.state_interfaces.size());
       return hardware_interface::CallbackReturn::ERROR;
@@ -80,7 +80,7 @@ hardware_interface::CallbackReturn ArduinoSerialBridge::on_init(
     if (joint.state_interfaces[0].name != hardware_interface::HW_IF_POSITION)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("ArduinoSerialBridge"),
+        rclcpp::get_logger("BasisMotorSerialBridge"),
         "Joint '%s' have '%s' as first state interface. '%s' expected.", joint.name.c_str(),
         joint.state_interfaces[0].name.c_str(), hardware_interface::HW_IF_POSITION);
       return hardware_interface::CallbackReturn::ERROR;
@@ -89,7 +89,7 @@ hardware_interface::CallbackReturn ArduinoSerialBridge::on_init(
     if (joint.state_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("ArduinoSerialBridge"),
+        rclcpp::get_logger("BasisMotorSerialBridge"),
         "Joint '%s' have '%s' as second state interface. '%s' expected.", joint.name.c_str(),
         joint.state_interfaces[1].name.c_str(), hardware_interface::HW_IF_VELOCITY);
       return hardware_interface::CallbackReturn::ERROR;
@@ -99,7 +99,7 @@ hardware_interface::CallbackReturn ArduinoSerialBridge::on_init(
   return hardware_interface::CallbackReturn::SUCCESS;
 }
 
-std::vector<hardware_interface::StateInterface> ArduinoSerialBridge::export_state_interfaces()
+std::vector<hardware_interface::StateInterface> BasisMotorSerialBridge::export_state_interfaces()
 {
   std::vector<hardware_interface::StateInterface> state_interfaces;
   for (auto i = 0u; i < info_.joints.size(); i++)
@@ -113,7 +113,7 @@ std::vector<hardware_interface::StateInterface> ArduinoSerialBridge::export_stat
   return state_interfaces;
 }
 
-std::vector<hardware_interface::CommandInterface> ArduinoSerialBridge::export_command_interfaces()
+std::vector<hardware_interface::CommandInterface> BasisMotorSerialBridge::export_command_interfaces()
 {
   std::vector<hardware_interface::CommandInterface> command_interfaces;
   for (auto i = 0u; i < info_.joints.size(); i++)
@@ -125,17 +125,17 @@ std::vector<hardware_interface::CommandInterface> ArduinoSerialBridge::export_co
   return command_interfaces;
 }
 
-hardware_interface::CallbackReturn ArduinoSerialBridge::on_activate(
+hardware_interface::CallbackReturn BasisMotorSerialBridge::on_activate(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(rclcpp::get_logger("ArduinoSerialBridge"), "Activating ...please wait...");
+  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Activating ...please wait...");
 
   for (auto i = 0; i < hw_start_sec_; i++)
   {
     rclcpp::sleep_for(std::chrono::seconds(1));
     RCLCPP_INFO(
-      rclcpp::get_logger("ArduinoSerialBridge"), "%.1f seconds left...", hw_start_sec_ - i);
+      rclcpp::get_logger("BasisMotorSerialBridge"), "%.1f seconds left...", hw_start_sec_ - i);
   }
   // END: This part here is for exemplary purposes - Please do not copy to your production code
 
@@ -150,43 +150,43 @@ hardware_interface::CallbackReturn ArduinoSerialBridge::on_activate(
     }
   }
 
-  RCLCPP_INFO(rclcpp::get_logger("ArduinoSerialBridge"), "Successfully activated!");
+  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Successfully activated!");
 
   return hardware_interface::CallbackReturn::SUCCESS;
 }
 
-hardware_interface::CallbackReturn ArduinoSerialBridge::on_deactivate(
+hardware_interface::CallbackReturn BasisMotorSerialBridge::on_deactivate(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(rclcpp::get_logger("ArduinoSerialBridge"), "Deactivating ...please wait...");
+  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Deactivating ...please wait...");
 
   for (auto i = 0; i < hw_stop_sec_; i++)
   {
     rclcpp::sleep_for(std::chrono::seconds(1));
     RCLCPP_INFO(
-      rclcpp::get_logger("ArduinoSerialBridge"), "%.1f seconds left...", hw_stop_sec_ - i);
+      rclcpp::get_logger("BasisMotorSerialBridge"), "%.1f seconds left...", hw_stop_sec_ - i);
   }
   // END: This part here is for exemplary purposes - Please do not copy to your production code
 
-  RCLCPP_INFO(rclcpp::get_logger("ArduinoSerialBridge"), "Successfully deactivated!");
+  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Successfully deactivated!");
 
   return hardware_interface::CallbackReturn::SUCCESS;
 }
 
-hardware_interface::return_type ArduinoSerialBridge::read(
+hardware_interface::return_type BasisMotorSerialBridge::read(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & period)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
   for (std::size_t i = 0; i < hw_velocities_.size(); i++)
   {
-    // Simulate DiffBot wheels's movement as a first-order system
+    // Simulate service_roboter wheels's movement as a first-order system
     // Update the joint status: this is a revolute joint without any limit.
     // Simply integrates
     hw_positions_[i] = hw_positions_[i] + period.seconds() * hw_velocities_[i];
 
     RCLCPP_INFO(
-      rclcpp::get_logger("ArduinoSerialBridge"),
+      rclcpp::get_logger("BasisMotorSerialBridge"),
       "Got position state %.5f and velocity state %.5f for '%s'!", hw_positions_[i],
       hw_velocities_[i], info_.joints[i].name.c_str());
   }
@@ -195,29 +195,29 @@ hardware_interface::return_type ArduinoSerialBridge::read(
   return hardware_interface::return_type::OK;
 }
 
-hardware_interface::return_type ADT_HARDWARE ::ArduinoSerialBridge::write(
+hardware_interface::return_type adt_hardware ::BasisMotorSerialBridge::write(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(rclcpp::get_logger("ArduinoSerialBridge"), "Writing...");
+  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Writing...");
 
   for (auto i = 0u; i < hw_commands_.size(); i++)
   {
     // Simulate sending commands to the hardware
     RCLCPP_INFO(
-      rclcpp::get_logger("ArduinoSerialBridge"), "Got command %.5f for '%s'!", hw_commands_[i],
+      rclcpp::get_logger("BasisMotorSerialBridge"), "Got command %.5f for '%s'!", hw_commands_[i],
       info_.joints[i].name.c_str());
 
     hw_velocities_[i] = hw_commands_[i];
   }
-  RCLCPP_INFO(rclcpp::get_logger("ArduinoSerialBridge"), "Joints successfully written!");
+  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Joints successfully written!");
   // END: This part here is for exemplary purposes - Please do not copy to your production code
 
   return hardware_interface::return_type::OK;
 }
 
-}  // namespace ADT_HARDWARE
+}  // namespace adt_hardware
 
 #include "pluginlib/class_list_macros.hpp"
 PLUGINLIB_EXPORT_CLASS(
-  ADT_HARDWARE::ArduinoSerialBridge, hardware_interface::SystemInterface)
+  adt_hardware::BasisMotorSerialBridge, hardware_interface::SystemInterface)

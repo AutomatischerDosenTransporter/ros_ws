@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>ADT_HARDWARE</name>
+  <name>adt_hardware</name>
   <version>0.0.0</version>
-  <description>Demo package of `ros2_control` hardware for DiffBot.</description>
+  <description>Demo package of `ros2_control` hardware for service_roboter.</description>
 
   <maintainer email="denis.stogl@stoglrobotics.de">Dr.-Ing. Denis Štogl</maintainer>
   <maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>

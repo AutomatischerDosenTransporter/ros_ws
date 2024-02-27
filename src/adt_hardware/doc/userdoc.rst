@@ -3,10 +3,10 @@
 .. _ros2_control_demos_example_2_userdoc:
 
 *********
-DiffBot
+service_roboter
 *********
 
-*DiffBot*, or ''Differential Mobile Robot'', is a simple mobile base with differential drive.
+*service_roboter*, or ''Differential Mobile Robot'', is a simple mobile base with differential drive.
 The robot is basically a box moving according to differential drive kinematics.
 
 For *example_2*, the hardware interface plugin is implemented having only one interface.
@@ -14,39 +14,39 @@ For *example_2*, the hardware interface plugin is implemented having only one in
 * The communication is done using proprietary API to communicate with the robot control box.
 * Data for all joints is exchanged at once.
 
-The *DiffBot* URDF files can be found in ``description/urdf`` folder.
+The *service_roboter* URDF files can be found in ``description/urdf`` folder.
 
 .. include:: ../../doc/run_from_docker.rst
 
 Tutorial steps
 --------------------------
 
-1. To check that *DiffBot* description is working properly use following launch commands
+1. To check that *service_roboter* description is working properly use following launch commands
 
    .. code-block:: shell
 
-    ros2 launch ADT_HARDWARE view_robot.launch.py
+    ros2 launch adt_hardware view_robot.launch.py
 
    .. warning::
     Getting the following output in terminal is OK: ``Warning: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist``.
     This happens because ``joint_state_publisher_gui`` node need some time to start.
 
-   .. image:: diffbot.png
+   .. image:: service_roboter.png
     :width: 400
     :alt: Differential Mobile Robot
 
-2. To start *DiffBot* example open a terminal, source your ROS2-workspace and execute its launch file with
+2. To start *service_roboter* example open a terminal, source your ROS2-workspace and execute its launch file with
 
    .. code-block:: shell
 
-    ros2 launch ADT_HARDWARE diffbot.launch.py
+    ros2 launch adt_hardware service_roboter.launch.py
 
    The launch file loads and starts the robot hardware, controllers and opens *RViz*.
    In the starting terminal you will see a lot of output from the hardware implementation showing its internal states.
    This excessive printing is only added for demonstration. In general, printing to the terminal should be avoided as much as possible in a hardware interface implementation.
 
    If you can see an orange box in *RViz* everything has started properly.
-   Still, to be sure, let's introspect the control system before moving *DiffBot*.
+   Still, to be sure, let's introspect the control system before moving *service_roboter*.
 
 3. Check if the hardware interface loaded properly, by opening another terminal and executing
 
@@ -67,7 +67,7 @@ Tutorial steps
           right_wheel_joint/position
           right_wheel_joint/velocity
 
-   The ``[claimed]`` marker on command interfaces means that a controller has access to command *DiffBot*.
+   The ``[claimed]`` marker on command interfaces means that a controller has access to command *service_roboter*.
 
    Furthermore, we can see that the command interface is of type ``velocity``, which is typical for a differential drive robot.
 
@@ -81,14 +81,14 @@ Tutorial steps
 
    .. code-block:: shell
 
-    diffbot_base_controller[diff_drive_controller/DiffDriveController] active
+    service_roboter_base_controller[diff_drive_controller/DiffDriveController] active
     joint_state_broadcaster[joint_state_broadcaster/JointStateBroadcaster] active
 
 5. If everything is fine, now you can send a command to *Diff Drive Controller* using ROS 2 CLI interface:
 
    .. code-block:: shell
 
-    ros2 topic pub --rate 30 /diffbot_base_controller/cmd_vel geometry_msgs/msg/TwistStamped "
+    ros2 topic pub --rate 30 /service_roboter_base_controller/cmd_vel geometry_msgs/msg/TwistStamped "
     twist:
       linear:
         x: 0.7
@@ -104,8 +104,8 @@ Tutorial steps
 
    .. code-block:: shell
 
-    [ArduinoSerialBridge]: Got command 43.33333 for 'left_wheel_joint'!
-    [ArduinoSerialBridge]: Got command 50.00000 for 'right_wheel_joint'!
+    [BasisMotorSerialBridge]: Got command 43.33333 for 'left_wheel_joint'!
+    [BasisMotorSerialBridge]: Got command 50.00000 for 'right_wheel_joint'!
 
 6. Let's introspect the ros2_control hardware component. Calling
 
@@ -118,9 +118,9 @@ Tutorial steps
   .. code-block:: shell
 
     Hardware Component 1
-            name: DiffBot
+            name: service_roboter
             type: system
-            plugin name: ADT_HARDWARE/ArduinoSerialBridge
+            plugin name: adt_hardware/BasisMotorSerialBridge
             state: id=3 label=active
             command interfaces
                     left_wheel_joint/velocity [available] [claimed]
@@ -133,7 +133,7 @@ Tutorial steps
 
   .. code-block:: shell
 
-    ros2 launch ADT_HARDWARE diffbot.launch.py use_mock_hardware:=True
+    ros2 launch adt_hardware service_roboter.launch.py use_mock_hardware:=True
 
   Calling
 
@@ -146,7 +146,7 @@ Tutorial steps
   .. code-block:: shell
 
     Hardware Component 1
-        name: DiffBot
+        name: service_roboter
         type: system
         plugin name: mock_components/GenericSystem
         state: id=3 label=active
@@ -154,7 +154,7 @@ Tutorial steps
                 left_wheel_joint/velocity [available] [claimed]
                 right_wheel_joint/velocity [available] [claimed]
 
-  You see that a different plugin was loaded. Having a look into the `diffbot.ros2_control.xacro <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/description/ros2_control/diffbot.ros2_control.xacro>`__, one can find the
+  You see that a different plugin was loaded. Having a look into the `service_roboter.ros2_control.xacro <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/description/ros2_control/service_roboter.ros2_control.xacro>`__, one can find the
   instructions to load this plugin together with the parameter ``calculate_dynamics``.
 
   .. code-block:: xml
@@ -173,16 +173,16 @@ Tutorial steps
 Files used for this demos
 --------------------------
 
-* Launch file: `diffbot.launch.py <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/bringup/launch/diffbot.launch.py>`__
-* Controllers yaml: `diffbot_controllers.yaml <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/bringup/config/diffbot_controllers.yaml>`__
-* URDF file: `diffbot.urdf.xacro <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/description/urdf/diffbot.urdf.xacro>`__
+* Launch file: `service_roboter.launch.py <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/bringup/launch/service_roboter.launch.py>`__
+* Controllers yaml: `service_roboter_controllers.yaml <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/bringup/config/service_roboter_controllers.yaml>`__
+* URDF file: `service_roboter.urdf.xacro <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/description/urdf/service_roboter.urdf.xacro>`__
 
-  * Description: `diffbot_description.urdf.xacro <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/ros2_control_demo_description/diffbot/urdf/diffbot_description.urdf.xacro>`__
-  * ``ros2_control`` tag: `diffbot.ros2_control.xacro <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/description/ros2_control/diffbot.ros2_control.xacro>`__
+  * Description: `service_roboter_description.urdf.xacro <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/ros2_control_demo_description/service_roboter/urdf/service_roboter_description.urdf.xacro>`__
+  * ``ros2_control`` tag: `service_roboter.ros2_control.xacro <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/description/ros2_control/service_roboter.ros2_control.xacro>`__
 
-* RViz configuration: `diffbot.rviz <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/ros2_control_demo_description/diffbot/rviz/diffbot.rviz>`__
+* RViz configuration: `service_roboter.rviz <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/ros2_control_demo_description/service_roboter/rviz/service_roboter.rviz>`__
 
-* Hardware interface plugin: `diffbot_system.cpp <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/hardware/diffbot_system.cpp>`__
+* Hardware interface plugin: `basis_motor_bridge.cpp <https://github.com/ros-controls/ros2_control_demos/tree/{REPOS_FILE_BRANCH}/example_2/hardware/basis_motor_bridge.cpp>`__
 
 
 Controllers from this demo

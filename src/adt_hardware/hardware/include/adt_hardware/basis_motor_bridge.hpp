@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ADT_HARDWARE__DIFFBOT_SYSTEM_HPP_
-#define ADT_HARDWARE__DIFFBOT_SYSTEM_HPP_
+#ifndef adt_hardware__basis_motor_bridge_HPP_
+#define adt_hardware__basis_motor_bridge_HPP_
 
 #include <memory>
 #include <string>
@@ -30,43 +30,43 @@
 #include "rclcpp_lifecycle/node_interfaces/lifecycle_node_interface.hpp"
 #include "rclcpp_lifecycle/state.hpp"
 
-#include "ADT_HARDWARE/visibility_control.h"
+#include "adt_hardware/visibility_control.h"
 
-namespace ADT_HARDWARE
+namespace adt_hardware
 {
-class ArduinoSerialBridge : public hardware_interface::SystemInterface
+class BasisMotorSerialBridge : public hardware_interface::SystemInterface
 {
 public:
-  RCLCPP_SHARED_PTR_DEFINITIONS(ArduinoSerialBridge);
+  RCLCPP_SHARED_PTR_DEFINITIONS(BasisMotorSerialBridge);
 
-  ADT_HARDWARE_PUBLIC
+  adt_hardware_PUBLIC
   hardware_interface::CallbackReturn on_init(
     const hardware_interface::HardwareInfo & info) override;
 
-  ADT_HARDWARE_PUBLIC
+  adt_hardware_PUBLIC
   std::vector<hardware_interface::StateInterface> export_state_interfaces() override;
 
-  ADT_HARDWARE_PUBLIC
+  adt_hardware_PUBLIC
   std::vector<hardware_interface::CommandInterface> export_command_interfaces() override;
 
-  ADT_HARDWARE_PUBLIC
+  adt_hardware_PUBLIC
   hardware_interface::CallbackReturn on_activate(
     const rclcpp_lifecycle::State & previous_state) override;
 
-  ADT_HARDWARE_PUBLIC
+  adt_hardware_PUBLIC
   hardware_interface::CallbackReturn on_deactivate(
     const rclcpp_lifecycle::State & previous_state) override;
 
-  ADT_HARDWARE_PUBLIC
+  adt_hardware_PUBLIC
   hardware_interface::return_type read(
     const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
-  ADT_HARDWARE_PUBLIC
+  adt_hardware_PUBLIC
   hardware_interface::return_type write(
     const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
 private:
-  // Parameters for the DiffBot simulation
+  // Parameters for the service_roboter simulation
   double hw_start_sec_;
   double hw_stop_sec_;
 
@@ -76,6 +76,6 @@ private:
   std::vector<double> hw_velocities_;
 };
 
-}  // namespace ADT_HARDWARE
+}  // namespace adt_hardware
 
-#endif  // ADT_HARDWARE__DIFFBOT_SYSTEM_HPP_
+#endif  // adt_hardware__basis_motor_bridge_HPP_

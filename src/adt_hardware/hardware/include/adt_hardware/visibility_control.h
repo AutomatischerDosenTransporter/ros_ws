@@ -19,38 +19,38 @@
  * library cannot have, but the consuming code must have inorder to link.
  */
 
-#ifndef ADT_HARDWARE__VISIBILITY_CONTROL_H_
-#define ADT_HARDWARE__VISIBILITY_CONTROL_H_
+#ifndef adt_hardware__VISIBILITY_CONTROL_H_
+#define adt_hardware__VISIBILITY_CONTROL_H_
 
 // This logic was borrowed (then namespaced) from the examples on the gcc wiki:
 //     https://gcc.gnu.org/wiki/Visibility
 
 #if defined _WIN32 || defined __CYGWIN__
 #ifdef __GNUC__
-#define ADT_HARDWARE_EXPORT __attribute__((dllexport))
-#define ADT_HARDWARE_IMPORT __attribute__((dllimport))
+#define adt_hardware_EXPORT __attribute__((dllexport))
+#define adt_hardware_IMPORT __attribute__((dllimport))
 #else
-#define ADT_HARDWARE_EXPORT __declspec(dllexport)
-#define ADT_HARDWARE_IMPORT __declspec(dllimport)
+#define adt_hardware_EXPORT __declspec(dllexport)
+#define adt_hardware_IMPORT __declspec(dllimport)
 #endif
-#ifdef ADT_HARDWARE_BUILDING_DLL
-#define ADT_HARDWARE_PUBLIC ADT_HARDWARE_EXPORT
+#ifdef adt_hardware_BUILDING_DLL
+#define adt_hardware_PUBLIC adt_hardware_EXPORT
 #else
-#define ADT_HARDWARE_PUBLIC ADT_HARDWARE_IMPORT
+#define adt_hardware_PUBLIC adt_hardware_IMPORT
 #endif
-#define ADT_HARDWARE_PUBLIC_TYPE ADT_HARDWARE_PUBLIC
-#define ADT_HARDWARE_LOCAL
+#define adt_hardware_PUBLIC_TYPE adt_hardware_PUBLIC
+#define adt_hardware_LOCAL
 #else
-#define ADT_HARDWARE_EXPORT __attribute__((visibility("default")))
-#define ADT_HARDWARE_IMPORT
+#define adt_hardware_EXPORT __attribute__((visibility("default")))
+#define adt_hardware_IMPORT
 #if __GNUC__ >= 4
-#define ADT_HARDWARE_PUBLIC __attribute__((visibility("default")))
-#define ADT_HARDWARE_LOCAL __attribute__((visibility("hidden")))
+#define adt_hardware_PUBLIC __attribute__((visibility("default")))
+#define adt_hardware_LOCAL __attribute__((visibility("hidden")))
 #else
-#define ADT_HARDWARE_PUBLIC
-#define ADT_HARDWARE_LOCAL
+#define adt_hardware_PUBLIC
+#define adt_hardware_LOCAL
 #endif
-#define ADT_HARDWARE_PUBLIC_TYPE
+#define adt_hardware_PUBLIC_TYPE
 #endif
 
-#endif  // ADT_HARDWARE__VISIBILITY_CONTROL_H_
+#endif  // adt_hardware__VISIBILITY_CONTROL_H_

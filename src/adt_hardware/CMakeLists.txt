@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(ADT_HARDWARE LANGUAGES CXX)
+project(adt_hardware LANGUAGES CXX)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
   add_compile_options(-Wall -Wextra)
@@ -22,42 +22,42 @@ endforeach()
 
 ## COMPILE
 add_library(
-  ADT_HARDWARE
+  adt_hardware
   SHARED
-  hardware/diffbot_system.cpp
+  hardware/basis_motor_bridge.cpp
 )
-target_compile_features(ADT_HARDWARE PUBLIC cxx_std_17)
-target_include_directories(ADT_HARDWARE PUBLIC
+target_compile_features(adt_hardware PUBLIC cxx_std_17)
+target_include_directories(adt_hardware PUBLIC
 $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/hardware/include>
-$<INSTALL_INTERFACE:include/ADT_HARDWARE>
+$<INSTALL_INTERFACE:include/adt_hardware>
 )
 ament_target_dependencies(
-  ADT_HARDWARE PUBLIC
+  adt_hardware PUBLIC
   ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
 
 # Causes the visibility macros to use dllexport rather than dllimport,
 # which is appropriate when building the dll but not consuming it.
-target_compile_definitions(${PROJECT_NAME} PRIVATE "ADT_HARDWARE_BUILDING_DLL")
+target_compile_definitions(${PROJECT_NAME} PRIVATE "adt_hardware_BUILDING_DLL")
 
 # Export hardware plugins
-pluginlib_export_plugin_description_file(hardware_interface ADT_HARDWARE.xml)
+pluginlib_export_plugin_description_file(hardware_interface adt_hardware.xml)
 
 # INSTALL
 install(
   DIRECTORY hardware/include/
-  DESTINATION include/ADT_HARDWARE
+  DESTINATION include/adt_hardware
 )
 install(
   DIRECTORY description/launch description/ros2_control description/urdf
-  DESTINATION share/ADT_HARDWARE
+  DESTINATION share/adt_hardware
 )
 install(
   DIRECTORY bringup/launch bringup/config
-  DESTINATION share/ADT_HARDWARE
+  DESTINATION share/adt_hardware
 )
-install(TARGETS ADT_HARDWARE
-  EXPORT export_ADT_HARDWARE
+install(TARGETS adt_hardware
+  EXPORT export_adt_hardware
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
@@ -71,6 +71,6 @@ if(BUILD_TESTING)
 endif()
 
 ## EXPORTS
-ament_export_targets(export_ADT_HARDWARE HAS_LIBRARY_TARGET)
+ament_export_targets(export_adt_hardware HAS_LIBRARY_TARGET)
 ament_export_dependencies(${THIS_PACKAGE_INCLUDE_DEPENDS})
 ament_package()
