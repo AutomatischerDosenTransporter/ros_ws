@@ -9,6 +9,7 @@ LABEL storage="github_action_prune"
 MAINTAINER "Daniel Nussbaum"
 
 # Install dependencies
+COPY setup.bash .
 RUN bash setup.bash
 FROM build_base_part as build_dependencies_part
 
@@ -19,4 +20,5 @@ COPY ./src /ros_ws/src
 FROM build_dependencies_part as build_source_part
 
 # Build the base Colcon workspace, installing dependencies first.
+COPY build.bash .
 RUN bash build.bash
