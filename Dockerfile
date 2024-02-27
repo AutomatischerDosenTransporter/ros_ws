@@ -1,7 +1,7 @@
 ########################################
 # Base Image for ADT                   #
 ########################################
-FROM ros:foxy as build_base_part
+FROM ros:humble as build_base_part
 SHELL ["/bin/bash", "-c"]
 ENV ROS_DISTRO=${ROS_DISTRO}
 LABEL storage="github_action_prune"
