@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-c"]
 ENV ROS_DISTRO=${ROS_DISTRO}
 LABEL storage="github_action_prune"
 
-MAINTAINER "Daniel Nussbaum"
+LABEL MAINTAINER="Daniel Nussbaum"
 
 # Install dependencies
 COPY setup.bash .
@@ -20,5 +20,9 @@ COPY ./src /ros_ws/src
 FROM build_dependencies_part as build_source_part
 
 # Build the base Colcon workspace, installing dependencies first.
-COPY build.bash .
-RUN bash build.bash
+COPY init.bash .
+RUN bash init.bash
+
+
+COPY setup.sh /ros2_java_ws/setup.sh
+ENTRYPOINT [ "/ros2_java_ws/setup.sh" ]
