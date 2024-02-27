@@ -9,8 +9,8 @@ LABEL storage="github_action_prune"
 LABEL MAINTAINER="Daniel Nussbaum"
 
 # Install dependencies
-COPY setup.bash .
-RUN bash setup.bash
+COPY init.bash .
+RUN bash init.bash
 FROM build_base_part as build_dependencies_part
 
 # Create Colcon workspace with external dependencies
@@ -20,8 +20,8 @@ COPY ./src /ros_ws/src
 FROM build_dependencies_part as build_source_part
 
 # Build the base Colcon workspace, installing dependencies first.
-COPY init.bash .
-RUN bash init.bash
+COPY build.bash .
+RUN bash build.bash
 
 
 COPY setup.sh /ros2_java_ws/setup.sh
