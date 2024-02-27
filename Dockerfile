@@ -24,5 +24,6 @@ COPY build.bash .
 RUN bash build.bash
 
 
-COPY setup.sh /ros2_java_ws/setup.sh
-ENTRYPOINT [ "/ros2_java_ws/setup.sh" ]
+COPY setup.sh /ros_ws/setup.sh
+RUN chmod 777 -R .
+ENTRYPOINT [ "/ros_ws/setup.sh" ]
