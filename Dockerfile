@@ -9,7 +9,6 @@ LABEL storage="github_action_prune"
 MAINTAINER "Daniel Nussbaum"
 
 # Install dependencies
-RUN apt-get update -y
 RUN bash setup.bash
 FROM build_base_part as build_dependencies_part
 
