@@ -7,7 +7,8 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
-#include <libserial/SerialPort.h>
+#include <libserial/SerialStream.h>
+#include "geometry_msgs/msg/twist.hpp"
 
 using namespace std::chrono_literals;
 using std::placeholders::_1;
@@ -21,51 +22,134 @@ class MinimalPublisher : public rclcpp::Node
     {
       this->declare_parameter("serial_port", "/dev/ttyACM0");
       this->declare_parameter("serial_baudrate", "9600");
+      
+      serial_port.Open( "/dev/serial/by-id/usb-Arduino_Srl_Arduino_Uno_55639303834351602281-if00" );
 
-      serial_port.Open( "/dev/ttyACM0" );
       serial_port.SetBaudRate( BaudRate::BAUD_9600 );
+      serial_port.SetCharacterSize( CharacterSize::CHAR_SIZE_8 );
+      serial_port.SetParity( Parity::PARITY_NONE );
+      serial_port.SetStopBits( StopBits::STOP_BITS_1 ) ;
 
-      publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
-      timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));
+      // publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+      // timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));
 
-      subscription_ = this->create_subscription<std_msgs::msg::String>("topic", 10, std::bind(&MinimalPublisher::topic_callback, this, _1));
+      command_subscription_ = this->create_subscription<std_msgs::msg::String>("command", 10, std::bind(&MinimalPublisher::command_callback, this, _1));
+      twist_subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 10, std::bind(&MinimalPublisher::twist_callback, this, _1));
     }
 
   private:
-    void topic_callback(const std_msgs::msg::String & msg) const
+    bool send_command(const std::string & command) {
+      std::stringstream ss;
+      ss << command;
+      serial_port << ss.str() << std::endl ;
+      RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", command.c_str());
+
+      std::string response;
+      while (true) {
+        try
+        {
+          std::getline(serial_port, response);
+          RCLCPP_INFO(this->get_logger(), "Response: '%s'", response.c_str());
+
+          if(response.rfind("$ OK", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: OK");
+            return true;
+          }  else if (response.rfind("$ ERROR", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: Error");
+            return false;
+          } else if (response.rfind("+", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: Message");
+          } else if (response.rfind("&", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: Message");
+          } else if (response.rfind("#", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: Echo");
+          } else {
+            RCLCPP_INFO(this->get_logger(), "Type: Unknown");
+            return false;
+          }
+        }
+        catch (const LibSerial::ReadTimeout&)
+        {
+          RCLCPP_INFO(this->get_logger(), "The ReadByte() call has timed out.");
+          return false;
+        }
+      }
+    }
+
+    void command_callback(const std_msgs::msg::String & msg)
     {
       RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
+
+      std::string data(msg.data.c_str());
+      send_command(data);
     }
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr command_subscription_;
+
+
+    void twist_callback(const geometry_msgs::msg::Twist & msg)
+    {
+      RCLCPP_INFO(this->get_logger(), "I heard: TWIST");
+
+      double left = msg.linear.x * 0.5 + msg.angular.z * -0.5;
+      double right = msg.linear.x * 0.5 + msg.angular.z * 0.5;
+
+      std::string leftData = "speed -side left -speed " + std::to_string(left);
+      std::string rightData = "speed -side right -speed " + std::to_string(right);
+      
+      send_command(leftData);
+      send_command(rightData);
+    }
+    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr twist_subscription_;
+
 
     void timer_callback()
     {
-      auto message = std_msgs::msg::String();
       std::stringstream ss;
-      ss << "speed -side " << "left" << " -speed " << "1.00" << "\r";
+      ss << "speed -side " << "left" << " -speed " << "1.00";
+      serial_port << ss.str() << std::endl ;
+
+
+      auto message = std_msgs::msg::String();
       message.data = ss.str();
-      serial_port.FlushIOBuffers(); // Just in case
-      serial_port.Write( ss.str());
-      try
-      {
-        std::string response = "";
-        serial_port.ReadLine(response, '\n', 0.5);
-        RCLCPP_INFO(this->get_logger(), "Response: '%s'", response.c_str());
-        serial_port.ReadLine(response, '\n', 0.5);
-        RCLCPP_INFO(this->get_logger(), "Response: '%s'", response.c_str());
-      }
-      catch (const LibSerial::ReadTimeout&)
-      {
-        RCLCPP_INFO(this->get_logger(), "The ReadByte() call has timed out.");
-      }
-
-
-
       RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
       publisher_->publish(message);
+
+      std::string response;
+      while (true) {
+        try
+        {
+          std::getline(serial_port, response);
+          RCLCPP_INFO(this->get_logger(), "Response: '%s'", response.c_str());
+
+          if(response.rfind("$ OK", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: OK");
+            break;
+          }  else if (response.rfind("$ ERROR", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: Error");
+            break;
+          } else if (response.rfind("+", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: Message");
+          } else if (response.rfind("&", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: Message");
+          } else if (response.rfind("#", 0) == 0) {
+            RCLCPP_INFO(this->get_logger(), "Type: Echo");
+          } else {
+            RCLCPP_INFO(this->get_logger(), "Type: Unknown");
+          }
+        }
+        catch (const LibSerial::ReadTimeout&)
+        {
+          RCLCPP_INFO(this->get_logger(), "The ReadByte() call has timed out.");
+          break;
+        }
+      }
+
+
     }
+
+
     rclcpp::TimerBase::SharedPtr timer_;
-    SerialPort serial_port;
+    SerialStream serial_port;
 
     
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;

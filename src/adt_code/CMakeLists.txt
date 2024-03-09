@@ -12,10 +12,11 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 
 add_executable(service_roboter_motor_driver src/service_roboter_motor_driver.cpp)
-ament_target_dependencies(service_roboter_motor_driver rclcpp std_msgs)
+ament_target_dependencies(service_roboter_motor_driver rclcpp std_msgs geometry_msgs)
 
 target_link_libraries(service_roboter_motor_driver serial)
 
