@@ -104,8 +104,8 @@ Tutorial steps
 
    .. code-block:: shell
 
-    [BasisMotorSerialBridge]: Got command 43.33333 for 'left_wheel_joint'!
-    [BasisMotorSerialBridge]: Got command 50.00000 for 'right_wheel_joint'!
+    [ServiceMotorSerialBridge]: Got command 43.33333 for 'left_wheel_joint'!
+    [ServiceMotorSerialBridge]: Got command 50.00000 for 'right_wheel_joint'!
 
 6. Let's introspect the ros2_control hardware component. Calling
 
@@ -120,7 +120,7 @@ Tutorial steps
     Hardware Component 1
             name: service_roboter
             type: system
-            plugin name: adt_hardware/BasisMotorSerialBridge
+            plugin name: adt_hardware/ServiceMotorSerialBridge
             state: id=3 label=active
             command interfaces
                     left_wheel_joint/velocity [available] [claimed]

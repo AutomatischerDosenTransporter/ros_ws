@@ -34,10 +34,10 @@
 
 namespace adt_hardware
 {
-class BasisMotorSerialBridge : public hardware_interface::SystemInterface
+class ServiceMotorSerialBridge : public hardware_interface::SystemInterface
 {
 public:
-  RCLCPP_SHARED_PTR_DEFINITIONS(BasisMotorSerialBridge);
+  RCLCPP_SHARED_PTR_DEFINITIONS(ServiceMotorSerialBridge);
 
   adt_hardware_PUBLIC
   hardware_interface::CallbackReturn on_init(

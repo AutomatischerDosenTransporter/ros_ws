@@ -27,7 +27,7 @@
 
 namespace adt_hardware
 {
-hardware_interface::CallbackReturn BasisMotorSerialBridge::on_init(
+hardware_interface::CallbackReturn ServiceMotorSerialBridge::on_init(
   const hardware_interface::HardwareInfo & info)
 {
   if (
@@ -53,7 +53,7 @@ hardware_interface::CallbackReturn BasisMotorSerialBridge::on_init(
     if (joint.command_interfaces.size() != 1)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("BasisMotorSerialBridge"),
+        rclcpp::get_logger("ServiceMotorSerialBridge"),
         "Joint '%s' has %zu command interfaces found. 1 expected.", joint.name.c_str(),
         joint.command_interfaces.size());
       return hardware_interface::CallbackReturn::ERROR;
@@ -62,7 +62,7 @@ hardware_interface::CallbackReturn BasisMotorSerialBridge::on_init(
     if (joint.command_interfaces[0].name != hardware_interface::HW_IF_VELOCITY)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("BasisMotorSerialBridge"),
+        rclcpp::get_logger("ServiceMotorSerialBridge"),
         "Joint '%s' have %s command interfaces found. '%s' expected.", joint.name.c_str(),
         joint.command_interfaces[0].name.c_str(), hardware_interface::HW_IF_VELOCITY);
       return hardware_interface::CallbackReturn::ERROR;
@@ -71,7 +71,7 @@ hardware_interface::CallbackReturn BasisMotorSerialBridge::on_init(
     if (joint.state_interfaces.size() != 2)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("BasisMotorSerialBridge"),
+        rclcpp::get_logger("ServiceMotorSerialBridge"),
         "Joint '%s' has %zu state interface. 2 expected.", joint.name.c_str(),
         joint.state_interfaces.size());
       return hardware_interface::CallbackReturn::ERROR;
@@ -80,7 +80,7 @@ hardware_interface::CallbackReturn BasisMotorSerialBridge::on_init(
     if (joint.state_interfaces[0].name != hardware_interface::HW_IF_POSITION)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("BasisMotorSerialBridge"),
+        rclcpp::get_logger("ServiceMotorSerialBridge"),
         "Joint '%s' have '%s' as first state interface. '%s' expected.", joint.name.c_str(),
         joint.state_interfaces[0].name.c_str(), hardware_interface::HW_IF_POSITION);
       return hardware_interface::CallbackReturn::ERROR;
@@ -89,7 +89,7 @@ hardware_interface::CallbackReturn BasisMotorSerialBridge::on_init(
     if (joint.state_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
     {
       RCLCPP_FATAL(
-        rclcpp::get_logger("BasisMotorSerialBridge"),
+        rclcpp::get_logger("ServiceMotorSerialBridge"),
         "Joint '%s' have '%s' as second state interface. '%s' expected.", joint.name.c_str(),
         joint.state_interfaces[1].name.c_str(), hardware_interface::HW_IF_VELOCITY);
       return hardware_interface::CallbackReturn::ERROR;
@@ -99,7 +99,7 @@ hardware_interface::CallbackReturn BasisMotorSerialBridge::on_init(
   return hardware_interface::CallbackReturn::SUCCESS;
 }
 
-std::vector<hardware_interface::StateInterface> BasisMotorSerialBridge::export_state_interfaces()
+std::vector<hardware_interface::StateInterface> ServiceMotorSerialBridge::export_state_interfaces()
 {
   std::vector<hardware_interface::StateInterface> state_interfaces;
   for (auto i = 0u; i < info_.joints.size(); i++)
@@ -113,7 +113,7 @@ std::vector<hardware_interface::StateInterface> BasisMotorSerialBridge::export_s
   return state_interfaces;
 }
 
-std::vector<hardware_interface::CommandInterface> BasisMotorSerialBridge::export_command_interfaces()
+std::vector<hardware_interface::CommandInterface> ServiceMotorSerialBridge::export_command_interfaces()
 {
   std::vector<hardware_interface::CommandInterface> command_interfaces;
   for (auto i = 0u; i < info_.joints.size(); i++)
@@ -125,17 +125,17 @@ std::vector<hardware_interface::CommandInterface> BasisMotorSerialBridge::export
   return command_interfaces;
 }
 
-hardware_interface::CallbackReturn BasisMotorSerialBridge::on_activate(
+hardware_interface::CallbackReturn ServiceMotorSerialBridge::on_activate(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Activating ...please wait...");
+  RCLCPP_INFO(rclcpp::get_logger("ServiceMotorSerialBridge"), "Activating ...please wait...");
 
   for (auto i = 0; i < hw_start_sec_; i++)
   {
     rclcpp::sleep_for(std::chrono::seconds(1));
     RCLCPP_INFO(
-      rclcpp::get_logger("BasisMotorSerialBridge"), "%.1f seconds left...", hw_start_sec_ - i);
+      rclcpp::get_logger("ServiceMotorSerialBridge"), "%.1f seconds left...", hw_start_sec_ - i);
   }
   // END: This part here is for exemplary purposes - Please do not copy to your production code
 
@@ -150,31 +150,31 @@ hardware_interface::CallbackReturn BasisMotorSerialBridge::on_activate(
     }
   }
 
-  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Successfully activated!");
+  RCLCPP_INFO(rclcpp::get_logger("ServiceMotorSerialBridge"), "Successfully activated!");
 
   return hardware_interface::CallbackReturn::SUCCESS;
 }
 
-hardware_interface::CallbackReturn BasisMotorSerialBridge::on_deactivate(
+hardware_interface::CallbackReturn ServiceMotorSerialBridge::on_deactivate(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Deactivating ...please wait...");
+  RCLCPP_INFO(rclcpp::get_logger("ServiceMotorSerialBridge"), "Deactivating ...please wait...");
 
   for (auto i = 0; i < hw_stop_sec_; i++)
   {
     rclcpp::sleep_for(std::chrono::seconds(1));
     RCLCPP_INFO(
-      rclcpp::get_logger("BasisMotorSerialBridge"), "%.1f seconds left...", hw_stop_sec_ - i);
+      rclcpp::get_logger("ServiceMotorSerialBridge"), "%.1f seconds left...", hw_stop_sec_ - i);
   }
   // END: This part here is for exemplary purposes - Please do not copy to your production code
 
-  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Successfully deactivated!");
+  RCLCPP_INFO(rclcpp::get_logger("ServiceMotorSerialBridge"), "Successfully deactivated!");
 
   return hardware_interface::CallbackReturn::SUCCESS;
 }
 
-hardware_interface::return_type BasisMotorSerialBridge::read(
+hardware_interface::return_type ServiceMotorSerialBridge::read(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & period)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
@@ -186,7 +186,7 @@ hardware_interface::return_type BasisMotorSerialBridge::read(
     hw_positions_[i] = hw_positions_[i] + period.seconds() * hw_velocities_[i];
 
     RCLCPP_INFO(
-      rclcpp::get_logger("BasisMotorSerialBridge"),
+      rclcpp::get_logger("ServiceMotorSerialBridge"),
       "Got position state %.5f and velocity state %.5f for '%s'!", hw_positions_[i],
       hw_velocities_[i], info_.joints[i].name.c_str());
   }
@@ -195,22 +195,22 @@ hardware_interface::return_type BasisMotorSerialBridge::read(
   return hardware_interface::return_type::OK;
 }
 
-hardware_interface::return_type adt_hardware ::BasisMotorSerialBridge::write(
+hardware_interface::return_type adt_hardware ::ServiceMotorSerialBridge::write(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Writing...");
+  RCLCPP_INFO(rclcpp::get_logger("ServiceMotorSerialBridge"), "Writing...");
 
   for (auto i = 0u; i < hw_commands_.size(); i++)
   {
     // Simulate sending commands to the hardware
     RCLCPP_INFO(
-      rclcpp::get_logger("BasisMotorSerialBridge"), "Got command %.5f for '%s'!", hw_commands_[i],
+      rclcpp::get_logger("ServiceMotorSerialBridge"), "Got command %.5f for '%s'!", hw_commands_[i],
       info_.joints[i].name.c_str());
 
     hw_velocities_[i] = hw_commands_[i];
   }
-  RCLCPP_INFO(rclcpp::get_logger("BasisMotorSerialBridge"), "Joints successfully written!");
+  RCLCPP_INFO(rclcpp::get_logger("ServiceMotorSerialBridge"), "Joints successfully written!");
   // END: This part here is for exemplary purposes - Please do not copy to your production code
 
   return hardware_interface::return_type::OK;
@@ -220,4 +220,4 @@ hardware_interface::return_type adt_hardware ::BasisMotorSerialBridge::write(
 
 #include "pluginlib/class_list_macros.hpp"
 PLUGINLIB_EXPORT_CLASS(
-  adt_hardware::BasisMotorSerialBridge, hardware_interface::SystemInterface)
+  adt_hardware::ServiceMotorSerialBridge, hardware_interface::SystemInterface)

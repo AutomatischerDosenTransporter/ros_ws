@@ -21,9 +21,9 @@ class MinimalPublisher : public rclcpp::Node
     : Node("minimal_publisher"), count_(0)
     {
       this->declare_parameter("serial_port", "/dev/ttyACM0");
-      this->declare_parameter("serial_baudrate", "9600");
-      
-      serial_port.Open( "/dev/serial/by-id/usb-Arduino_Srl_Arduino_Uno_55639303834351602281-if00" );
+      std::string serial_port_device = this->get_parameter("serial_port").as_string();
+
+      serial_port.Open( serial_port_device );
 
       serial_port.SetBaudRate( BaudRate::BAUD_9600 );
       serial_port.SetCharacterSize( CharacterSize::CHAR_SIZE_8 );
