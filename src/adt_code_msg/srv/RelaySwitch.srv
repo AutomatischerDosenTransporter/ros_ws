@@ -1,0 +1,4 @@
+bool on
+int64 number
+---
+bool ok
