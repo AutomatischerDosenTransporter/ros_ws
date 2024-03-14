@@ -6,22 +6,26 @@
 #include <string>
 
 #include "rclcpp/rclcpp.hpp"
-#include "adt_code_msg/srv/relay_switch.hpp"
 #include <libserial/SerialStream.h>
+#include "geometry_msgs/msg/twist.hpp"
+#include "std_msgs/msg/string.hpp"
 
 using namespace std::chrono_literals;
 using std::placeholders::_1;
 using namespace LibSerial;
 
-class BasisRoboterRelayDriver : public rclcpp::Node
+class BasisRoboterMotorDriver : public rclcpp::Node
 {
   public:
     LibSerial::SerialStream serial_port;
   
-    BasisRoboterRelayDriver()
-    : Node("basis_roboter_relay_driver")
+    BasisRoboterMotorDriver()
+    : Node("basis_roboter_motor_driver")
     {
         this->declare_parameter("serial_port", "/dev/ttyACM0");
+        this->declare_parameter("x_axis_scale", 1.0);
+        this->declare_parameter("y_axis_scale", 1.0);
+        this->declare_parameter("z_axis_scale", 1.0);
         std::string serial_port_device = this->get_parameter("serial_port").as_string();
 
         serial_port.Open( serial_port_device );
@@ -31,9 +35,8 @@ class BasisRoboterRelayDriver : public rclcpp::Node
         serial_port.SetParity( Parity::PARITY_NONE );
         serial_port.SetStopBits( StopBits::STOP_BITS_1 ) ;
 
-        relay_switch_server_ = this->create_service<adt_code_msg::srv::RelaySwitch>("relay_switch", std::bind(&BasisRoboterRelayDriver::relaySwitchCallback, this, std::placeholders::_1,  std::placeholders::_2));
-
-
+        command_subscription_ = this->create_subscription<std_msgs::msg::String>("command", 10, std::bind(&BasisRoboterMotorDriver::command_callback, this, _1));
+        twist_subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("command_twist", 10, std::bind(&BasisRoboterMotorDriver::twist_callback, this, _1));
     }
 
   private:
@@ -74,30 +77,52 @@ class BasisRoboterRelayDriver : public rclcpp::Node
         }
       }
     }
-
-    void relaySwitchCallback(
-        const std::shared_ptr<adt_code_msg::srv::RelaySwitch::Request> request,
-        std::shared_ptr<adt_code_msg::srv::RelaySwitch::Response> response)
-    {
-
-        if(request->on) {
-          std::string cmd = "on -number " + std::to_string(request->number);
-          response->ok = send_command(cmd);
-        } else {
-          std::string cmd = "off -number " + std::to_string(request->number);
-          response->ok = send_command(cmd);
-        }
-        RCLCPP_INFO(this->get_logger(), "Incoming request state: %d" " number: %ld", request->on, request->number);
-        RCLCPP_INFO(this->get_logger(), "sending back response: [%d]", response->ok);
-    }
-    rclcpp::Service<adt_code_msg::srv::RelaySwitch>::SharedPtr relay_switch_server_;
   
+    void command_callback(const std_msgs::msg::String & msg)
+    {
+      RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
+
+      std::string data(msg.data.c_str());
+      send_command(data);
+    }
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr command_subscription_;
+
+    void twist_callback(const geometry_msgs::msg::Twist & msg)
+    {
+      RCLCPP_INFO(this->get_logger(), "I heard: TWIST");
+
+      double x = msg.linear.x;
+      double y = msg.linear.y;
+      double z = msg.linear.z;
+
+      if(x >  1.0) x =  1.0;
+      if(x < -1.0) x = -1.0;
+      if(y >  1.0) y =  1.0;
+      if(y < -1.0) y = -1.0;
+      if(z >  1.0) z =  1.0;
+      if(z < -1.0) z = -1.0;
+
+      x *= 100.0 * this->get_parameter("x_axis_scale").as_double();
+      y *= 100.0 * this->get_parameter("y_axis_scale").as_double();
+      z *= 100.0 * this->get_parameter("z_axis_scale").as_double();
+
+      std::string xData = "speed -axis x -speed " + std::to_string(x);
+      std::string yData = "speed -axis y -speed " + std::to_string(y);
+      std::string zData = "speed -axis z -speed " + std::to_string(z);
+      
+      send_command(xData);
+      send_command(yData);
+      send_command(zData);
+    }
+    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr twist_subscription_;
+
+
 };
 
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<BasisRoboterRelayDriver>());
+  rclcpp::spin(std::make_shared<BasisRoboterMotorDriver>());
   rclcpp::shutdown();
   return 0;
 }

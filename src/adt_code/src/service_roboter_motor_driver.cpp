@@ -14,27 +14,27 @@ using namespace std::chrono_literals;
 using std::placeholders::_1;
 using namespace LibSerial;
 
-class MinimalPublisher : public rclcpp::Node
+class ServiceRoboterMotorDriver : public rclcpp::Node
 {
   public:
-    MinimalPublisher()
-    : Node("minimal_publisher"), count_(0)
+    ServiceRoboterMotorDriver()
+    : Node("service_roboter_motor_driver"), count_(0)
     {
       this->declare_parameter("serial_port", "/dev/ttyACM0");
       std::string serial_port_device = this->get_parameter("serial_port").as_string();
 
       serial_port.Open( serial_port_device );
 
-      serial_port.SetBaudRate( BaudRate::BAUD_9600 );
+      serial_port.SetBaudRate( BaudRate::BAUD_115200 );
       serial_port.SetCharacterSize( CharacterSize::CHAR_SIZE_8 );
       serial_port.SetParity( Parity::PARITY_NONE );
       serial_port.SetStopBits( StopBits::STOP_BITS_1 ) ;
 
       // publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
-      // timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));
+      // timer_ = this->create_wall_timer(500ms, std::bind(&ServiceRoboterMotorDriver::timer_callback, this));
 
-      command_subscription_ = this->create_subscription<std_msgs::msg::String>("command", 10, std::bind(&MinimalPublisher::command_callback, this, _1));
-      twist_subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 10, std::bind(&MinimalPublisher::twist_callback, this, _1));
+      command_subscription_ = this->create_subscription<std_msgs::msg::String>("command", 10, std::bind(&ServiceRoboterMotorDriver::command_callback, this, _1));
+      twist_subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 10, std::bind(&ServiceRoboterMotorDriver::twist_callback, this, _1));
     }
 
   private:
@@ -159,7 +159,7 @@ class MinimalPublisher : public rclcpp::Node
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<MinimalPublisher>());
+  rclcpp::spin(std::make_shared<ServiceRoboterMotorDriver>());
   rclcpp::shutdown();
   return 0;
 }
