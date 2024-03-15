@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'aruco_detection = adt_cv.aruco_detection:main',
-            'drink_detection = adt_cv.drink_detection:main'
+            'aruco_frame = adt_cv.aruco_frame:main',
+            'drink_detection = adt_cv.drink_detection:main',
         ],
     },
 )

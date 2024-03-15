@@ -88,16 +88,17 @@ class DrinkNode(rclpy.node.Node):
             self.get_logger().warn("No camera info has been received!")
             return
 
-        cv_image = self.bridge.imgmsg_to_cv2(img_msg, 'mono8')
-        gray_image = cv2.cvtColor(cv_image, cv2.COLOR_BAYER)
+        cv_image = self.bridge.imgmsg_to_cv2(img_msg, 'bgra8')
+        gray_image = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY )
 
 
-        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+        face_cascade = cv2.CascadeClassifier('/home/adt/ros_ws/bringup/config/drink_cascade.xml')
 
-        faces = face_cascade.detectMultiScale(cv_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+        faces = face_cascade.detectMultiScale(gray_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
 
         for (x, y, w, h) in faces:
-            cv2.rectangle(face_cascade, (x, y), (x+w, y+h), (255, 0, 0), 2)
+            cv2.rectangle(cv_image, (x, y), (x+w, y+h), (255, 0, 0), 2)
+            # self.get_logger().info("Face!")
 
         pose_array = PoseArray()
         if self.camera_frame == "":
@@ -110,7 +111,7 @@ class DrinkNode(rclpy.node.Node):
 
         pose_array.header.stamp = img_msg.header.stamp
         self.poses_pub.publish(pose_array)
-        self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, 'mono8'))
+        self.image_pub.publish(self.bridge.cv2_to_imgmsg(cv_image, 'bgra8'))
 
 
 def main():
