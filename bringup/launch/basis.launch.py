@@ -16,7 +16,7 @@ def generate_launch_description():
             package='adt_code',
             executable='basis_roboter_motor_driver',
             name='basis_roboter_motor_driver_a',
-            parameters=[{'serial_port':'/dev/serial/by-path/pci-0000:00:14.0-usb-0:2.1.2:1.0-port0'},
+            parameters=[{'serial_port':'/dev/serial/by-path/pci-0000:00:14.0-usb-0:4.2:1.0-port0'},
                         {'x_axis_scale': 1.0},
                         {'y_axis_scale': 1.0},
                         {'z_axis_scale': 1.0}],
@@ -31,7 +31,7 @@ def generate_launch_description():
             package='adt_code',
             executable='basis_roboter_motor_driver',
             name='basis_roboter_motor_driver_b',
-            parameters=[{'serial_port':'/dev/serial/by-path/pci-0000:00:14.0-usb-0:2.1.3:1.0-port0'},
+            parameters=[{'serial_port':'/dev/serial/by-path/pci-0000:00:14.0-usb-0:4.3:1.0-port0'},
                         {'x_axis_scale': 1.0},
                         {'y_axis_scale':-1.0},
                         {'z_axis_scale': 1.0}],
@@ -129,7 +129,6 @@ def generate_launch_description():
             ],
     )
 
-
     aruco_frame_a = Node(
             namespace='service_roboter',
             package='adt_cv',
@@ -158,6 +157,40 @@ def generate_launch_description():
             ],
     )
 
+    drink_a = Node(
+            namespace='service_roboter',
+            package='adt_cv',
+            executable='drink_detection',
+            name='drink_detection_a',
+            parameters=[
+                        {'image_topic': '/service_roboter/camera/a/image_raw'},
+                        {'camera_info_topic': '/service_roboter/camera/a/camera_info'},
+                        {'parent_frame': 'camera_a'},
+                        {'plane_frame': 'aruco_0'},
+            ],
+            remappings=[
+                        ("/service_roboter/image_out", "/service_roboter/drink/a/image_out"),
+                        ("/service_roboter/foxglove_out", "/service_roboter/drink/a/foxglove_out"),
+            ],
+    )
+
+    drink_b = Node(
+            namespace='service_roboter',
+            package='adt_cv',
+            executable='drink_detection',
+            name='drink_detection_b',
+            parameters=[
+                        {'image_topic': '/service_roboter/camera/b/image_raw'},
+                        {'camera_info_topic': '/service_roboter/camera/b/camera_info'},
+                        {'parent_frame': 'camera_b'},
+                        {'plane_frame': 'aruco_0'},
+            ],
+            remappings=[
+                        ("/service_roboter/image_out", "/service_roboter/drink/b/image_out"),
+                        ("/service_roboter/foxglove_out", "/service_roboter/drink/b/foxglove_out"),
+            ],
+    )
+
     return LaunchDescription([
         # relay_driver,
         # motor_driver_a, 
@@ -168,4 +201,6 @@ def generate_launch_description():
         aruco_b,
         aruco_frame_a,
         aruco_frame_b,
+        drink_a,
+        drink_b,
         ])
