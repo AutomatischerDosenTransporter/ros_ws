@@ -2,6 +2,19 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 
 def generate_launch_description():
+    foxglove_bridge = Node(
+            namespace='service_roboter',
+            package='foxglove_bridge',
+            executable='foxglove_bridge',
+            name='foxglove_bridge',
+    )
+
+    aruco_a = Node(
+            namespace='service_roboter',
+            package='ros2_aruco',
+            executable='aruco_node',
+            name='gox',
+    )
 
     aruco_a = Node(
             namespace='service_roboter',
@@ -112,6 +125,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        foxglove_bridge,
         aruco_a,
         aruco_b,
         aruco_frame_a,

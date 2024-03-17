@@ -6,6 +6,11 @@
   <description>TODO: Package description</description>
   <maintainer email="daniel.nussbaum@htlstp.at">adt</maintainer>
   <license>MIT</license>
+  
+  
+  
+  <depend>behaviortree_cpp</depend>
+
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
