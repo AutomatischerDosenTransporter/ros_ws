@@ -1,0 +1,6 @@
+[submodule "ros2_aruco"]
+	path = ros2_aruco
+	url = https://github.com/AutomatischerDosenTransporter/ros2_aruco.git
+[submodule "src/ros2_aruco"]
+	path = src/ros2_aruco
+	url = https://github.com/AutomatischerDosenTransporter/ros2_aruco.git
