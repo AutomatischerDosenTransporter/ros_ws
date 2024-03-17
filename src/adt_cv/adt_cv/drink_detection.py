@@ -8,14 +8,14 @@ import cv2
 import tf_transformations
 from sensor_msgs.msg import CameraInfo
 from sensor_msgs.msg import Image
-from geometry_msgs.msg import PoseArray, Pose
-from geometry_msgs.msg import Point as GeometryPoint
 from rcl_interfaces.msg import ParameterDescriptor, ParameterType
 from tf2_ros import LookupException, ExtrapolationException
 from tf2_ros.buffer import Buffer
 from tf2_ros.transform_listener import TransformListener
-from Geometry3D import Line, Vector, Point
-from foxglove_msgs.msg import SceneEntity, LinePrimitive, SceneUpdate 
+from tf2_ros import TransformBroadcaster
+from foxglove_msgs.msg import SceneEntity, SceneUpdate 
+from geometry_msgs.msg import PoseArray, Pose
+from ros2_aruco_interfaces.msg import ArucoMarkers
 
 
 class DrinkNode(rclpy.node.Node):
@@ -50,7 +50,16 @@ class DrinkNode(rclpy.node.Node):
         )
 
         self.declare_parameter(
-            name="plane_frame",
+            name="marker_id",
+            value=0,
+            descriptor=ParameterDescriptor(
+                type=ParameterType.PARAMETER_INTEGER,
+                description="Id of marker on witch the drinks get projected",
+            ),
+        )
+
+        self.declare_parameter(
+            name="marker_topic",
             value="",
             descriptor=ParameterDescriptor(
                 type=ParameterType.PARAMETER_STRING,
@@ -58,6 +67,23 @@ class DrinkNode(rclpy.node.Node):
             ),
         )
 
+        self.declare_parameter(
+            name="marker_frame",
+            value="",
+            descriptor=ParameterDescriptor(
+                type=ParameterType.PARAMETER_STRING,
+                description="Frame of the marker",
+            ),
+        )
+
+        self.declare_parameter(
+            name="pixel_per_meter",
+            value=1000,
+            descriptor=ParameterDescriptor(
+                type=ParameterType.PARAMETER_INTEGER,
+                description="Pixel pro Meter",
+            ),
+        )
 
         image_topic = (self.get_parameter("image_topic").get_parameter_value().string_value)
         self.get_logger().info(f"Image topic: {image_topic}")
@@ -68,28 +94,45 @@ class DrinkNode(rclpy.node.Node):
         self.parent_frame = (self.get_parameter("parent_frame").get_parameter_value().string_value)
         self.get_logger().info(f"Parent frame: {self.parent_frame}")
 
-        self.plane_frame = (self.get_parameter("plane_frame").get_parameter_value().string_value)
-        self.get_logger().info(f"Plane frame: {self.plane_frame}")
+        self.marker_id = (self.get_parameter("marker_id").get_parameter_value().integer_value)
+        self.get_logger().info(f"Marker id: {self.marker_id}")
+
+        self.marker_topic = (self.get_parameter("marker_topic").get_parameter_value().string_value)
+        self.get_logger().info(f"Market topic: {self.marker_topic}")
+        
+        self.marker_frame = (self.get_parameter("marker_frame").get_parameter_value().string_value)
+        self.get_logger().info(f"Market frame: {self.marker_frame}")
+        
+        self.pixel_per_meter = (self.get_parameter("pixel_per_meter").get_parameter_value().integer_value)
+        self.get_logger().info(f"Pixel per Meter: {self.pixel_per_meter}")
         
         # Set up subscriptions
         self.info_sub = self.create_subscription(CameraInfo, info_topic, self.info_callback, qos_profile_sensor_data)
-
-        self.create_subscription(Image, image_topic, self.image_callback, qos_profile_sensor_data)
+        self.image_sub = self.create_subscription(Image, image_topic, self.image_callback, qos_profile_sensor_data)
+        self.marker_sub = self.create_subscription(ArucoMarkers, self.marker_topic, self.marker_callback, qos_profile_sensor_data)
 
         # Set up publishers
-        self.poses_pub = self.create_publisher(PoseArray, "drink_poses", 10)
         self.image_pub = self.create_publisher(Image, "image_out", 10)
         self.foxglove_pub = self.create_publisher(SceneUpdate, "foxglove_out", 10)
+        self.pose_pub = self.create_publisher(PoseArray, "poses", 10)
 
         # Set up fields for camera parameters
         self.info_msg = None
         self.intrinsic_mat = None
         self.distortion = None
+        self.marker = None
 
         self.bridge = CvBridge()
 
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.tf_broadcaster = TransformBroadcaster(self)
+
+    def marker_callback(self, markers):
+        for i in range(0, len(markers.marker_ids)):
+            if markers.marker_ids[i] == self.marker_id:
+                self.marker = markers.poses_2d[i]
+                return
 
     def info_callback(self, info_msg):
         self.info_msg = info_msg
@@ -101,6 +144,10 @@ class DrinkNode(rclpy.node.Node):
     def image_callback(self, img_msg):
         if self.info_msg is None:
             self.get_logger().warn("No camera info has been received!")
+            return
+        
+        if self.marker is None:
+            self.get_logger().warn("No markers has been received!")
             return
 
         # self.get_logger().info(f"Plane frame: {str(self.info_msg.header)}")
@@ -114,60 +161,30 @@ class DrinkNode(rclpy.node.Node):
         face_cascade = cv2.CascadeClassifier('/home/adt/ros_ws/bringup/config/drink_cascade.xml')
         faces = face_cascade.detectMultiScale(cv_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
 
+        cloud = PoseArray()
+        cloud.header.frame_id = self.marker_frame
+        cloud.header.stamp = self.info_msg.header.stamp
+
         scene = SceneEntity()
-        scene.id = self.parent_frame+"_foxglove_"+self.plane_frame
+        scene.id = self.parent_frame+"_foxglove"
         scene.frame_id = self.parent_frame
         scene.timestamp = self.info_msg.header.stamp
 
+
         for (x, y, w, h) in faces:
             cv2.rectangle(cv_image, (x, y), (x+w, y+h), (255, 0, 0), 2)
-            # self.get_logger().info("Face!")
+
             image_hight = cv_image.shape[0]
-            image_width = cv_image.shape[1]       
-            vield_of_view = 120    
-            alpha = (((x+w/2)/image_width)-0.5) * vield_of_view * (math.pi/180)
-            beta = (((y+h/2)/image_hight)-0.5) * vield_of_view * (math.pi/180)
-            camera_origin = Point(0, 0, 0)
+            image_width = cv_image.shape[1] 
 
-            line_dir_x=math.sin(alpha)
-            line_dir_y=math.sin(beta)
-            line_dir_z=math.cos(alpha)+math.cos(beta)
+            drink_x = (x - self.marker.x) / self.pixel_per_meter
+            drink_y = (y - self.marker.y) / self.pixel_per_meter
 
-            # line_dir=Vector(line_dir_x, line_dir_y, line_dir_z)
-            # line = Line(camera_origin, line_dir)
-
-            primitiveLine = LinePrimitive()
-            primitiveLine.pose.position.x = float(camera_origin.x)
-            primitiveLine.pose.position.y = float(camera_origin.y)
-            primitiveLine.pose.position.z = float(camera_origin.z)
-            primitiveLine.color.r = 100.0
-            primitiveLine.color.g = 100.0
-            primitiveLine.color.b = 100.0
-            primitiveLine.color.a = 100.0
-            primitiveLine.thickness = 0.005
-
-            geometry_point = GeometryPoint()
-            geometry_point.x = camera_origin.x + line_dir_x * 5.0
-            geometry_point.y = camera_origin.y + line_dir_y * 5.0
-            geometry_point.z = camera_origin.z + line_dir_z * 5.0
-            primitiveLine.points.append(GeometryPoint())
-            primitiveLine.points.append(geometry_point)
-            scene.lines.append(primitiveLine)
-
-
-
-
-        pose_array = PoseArray()
-        if self.parent_frame == "":
-            pose_array.header.frame_id = self.info_msg.header.frame_id
-        else:
-            pose_array.header.frame_id = self.parent_frame
-
-
-        
-
-        pose_array.header.stamp = img_msg.header.stamp
-        self.poses_pub.publish(pose_array)
+            point = Pose()
+            point.position.x = float(drink_x)        
+            point.position.y = float(drink_y)          
+            point.position.z = float(0)
+            cloud.poses.append(point)          
 
 
         scene_update = SceneUpdate()
@@ -177,6 +194,8 @@ class DrinkNode(rclpy.node.Node):
         img_msg = self.bridge.cv2_to_imgmsg(cv_image, 'mono8')
         img_msg.header.frame_id = self.parent_frame
         self.image_pub.publish(img_msg)
+
+        self.pose_pub.publish(cloud)
 
 
 def main():

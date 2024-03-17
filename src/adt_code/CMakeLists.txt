@@ -15,29 +15,34 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(adt_code_msg REQUIRED)
 
-
 add_executable(service_roboter_motor_driver src/service_roboter_motor_driver.cpp)
 add_executable(basis_roboter_relay_driver src/basis_roboter_relay_driver.cpp)
 add_executable(basis_roboter_motor_driver src/basis_roboter_motor_driver.cpp)
+add_executable(basis_roboter_motor_manager src/basis_roboter_motor_manager.cpp)
 
 ament_target_dependencies(service_roboter_motor_driver rclcpp std_msgs geometry_msgs adt_code_msg)
 ament_target_dependencies(basis_roboter_relay_driver rclcpp std_msgs geometry_msgs adt_code_msg)
 ament_target_dependencies(basis_roboter_motor_driver rclcpp std_msgs geometry_msgs adt_code_msg)
+ament_target_dependencies(basis_roboter_motor_manager rclcpp std_msgs geometry_msgs adt_code_msg)
 
 target_link_libraries(service_roboter_motor_driver serial)
 target_link_libraries(basis_roboter_relay_driver serial)
 target_link_libraries(basis_roboter_motor_driver serial)
+target_link_libraries(basis_roboter_motor_manager serial)
 
 target_include_directories(service_roboter_motor_driver PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>  $<INSTALL_INTERFACE:include>)
 target_include_directories(basis_roboter_relay_driver PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>  $<INSTALL_INTERFACE:include>)
 target_include_directories(basis_roboter_motor_driver PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>  $<INSTALL_INTERFACE:include>)
+target_include_directories(basis_roboter_motor_manager PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>  $<INSTALL_INTERFACE:include>)
 target_compile_features(service_roboter_motor_driver PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 target_compile_features(basis_roboter_relay_driver PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 target_compile_features(basis_roboter_motor_driver PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(basis_roboter_motor_manager PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
 install(TARGETS service_roboter_motor_driver DESTINATION lib/${PROJECT_NAME})
 install(TARGETS basis_roboter_relay_driver DESTINATION lib/${PROJECT_NAME})
 install(TARGETS basis_roboter_motor_driver DESTINATION lib/${PROJECT_NAME})
+install(TARGETS basis_roboter_motor_manager DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

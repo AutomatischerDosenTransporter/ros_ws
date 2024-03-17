@@ -166,11 +166,15 @@ def generate_launch_description():
                         {'image_topic': '/service_roboter/camera/a/image_raw'},
                         {'camera_info_topic': '/service_roboter/camera/a/camera_info'},
                         {'parent_frame': 'camera_a'},
-                        {'plane_frame': 'aruco_0'},
+                        {'marker_frame': 'aruco_0'},
+                        {'marker_id': 0},
+                        {'marker_topic': '/service_roboter/aruco/a/markers'},
+                        {'pixel_per_meter': 1181},
             ],
             remappings=[
                         ("/service_roboter/image_out", "/service_roboter/drink/a/image_out"),
                         ("/service_roboter/foxglove_out", "/service_roboter/drink/a/foxglove_out"),
+                        ("/service_roboter/poses", "/service_roboter/drink/a/poses")
             ],
     )
 
@@ -183,11 +187,15 @@ def generate_launch_description():
                         {'image_topic': '/service_roboter/camera/b/image_raw'},
                         {'camera_info_topic': '/service_roboter/camera/b/camera_info'},
                         {'parent_frame': 'camera_b'},
-                        {'plane_frame': 'aruco_0'},
+                        {'marker_frame': 'aruco_0'},
+                        {'marker_id': 0},
+                        {'marker_topic': '/service_roboter/aruco/b/markers'},
+                        {'pixel_per_meter': 1181},
             ],
             remappings=[
                         ("/service_roboter/image_out", "/service_roboter/drink/b/image_out"),
                         ("/service_roboter/foxglove_out", "/service_roboter/drink/b/foxglove_out"),
+                        ("/service_roboter/poses", "/service_roboter/drink/b/poses")
             ],
     )
 
