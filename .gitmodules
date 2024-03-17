@@ -4,3 +4,6 @@
 [submodule "src/ros2_aruco"]
 	path = src/ros2_aruco
 	url = https://github.com/AutomatischerDosenTransporter/ros2_aruco.git
+[submodule "src/BehaviorTree.ROS2"]
+	path = src/BehaviorTree.ROS2
+	url = https://github.com/BehaviorTree/BehaviorTree.ROS2.git

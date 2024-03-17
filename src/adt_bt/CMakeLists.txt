@@ -12,11 +12,17 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(behaviortree_cpp REQUIRED)
+find_package(behaviortree_ros2 REQUIRED)
+
+set(THIS_PACKAGE_DEPS 
+    behaviortree_ros2
+    std_msgs
+    rclcpp )
+
 
 add_executable(test_node src/test_node.cpp)
 
-ament_target_dependencies(test_node rclcpp std_msgs behaviortree_cpp)
+ament_target_dependencies(test_node ${THIS_PACKAGE_DEPS})
 
 target_include_directories(test_node PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:include>)
 target_compile_features(test_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
