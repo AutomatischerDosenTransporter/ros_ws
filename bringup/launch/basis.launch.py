@@ -23,6 +23,18 @@ def generate_launch_description():
             remappings=[
             ("/service_roboter/command", "/service_roboter/motor/a/command"),
             ("/service_roboter/command_twist", "/service_roboter/motor/a/command_twist"),
+
+            ("/service_roboter/encoder/x", "/service_roboter/motor/a/encoder/x"),
+            ("/service_roboter/encoder/y", "/service_roboter/motor/a/encoder/y"),
+            ("/service_roboter/encoder/z", "/service_roboter/motor/a/encoder/z"),
+
+            ("/service_roboter/limit/x/positive", "/service_roboter/motor/a/limit/x/positive"),
+            ("/service_roboter/limit/y/positive", "/service_roboter/motor/a/limit/y/positive"),
+            ("/service_roboter/limit/z/positive", "/service_roboter/motor/a/limit/z/positive"),
+
+            ("/service_roboter/limit/x/negative", "/service_roboter/motor/a/limit/x/negative"),
+            ("/service_roboter/limit/y/negative", "/service_roboter/motor/a/limit/y/negative"),
+            ("/service_roboter/limit/z/negative", "/service_roboter/motor/a/limit/z/negative"),
             ],
     )
 
@@ -38,6 +50,18 @@ def generate_launch_description():
             remappings=[
             ("/service_roboter/command", "/service_roboter/motor/b/command"),
             ("/service_roboter/command_twist", "/service_roboter/motor/b/command_twist"),
+
+            ("/service_roboter/encoder/x", "/service_roboter/motor/b/encoder/x"),
+            ("/service_roboter/encoder/y", "/service_roboter/motor/b/encoder/y"),
+            ("/service_roboter/encoder/z", "/service_roboter/motor/b/encoder/z"),
+
+            ("/service_roboter/limit/x/positive", "/service_roboter/motor/b/limit/x/positive"),
+            ("/service_roboter/limit/y/positive", "/service_roboter/motor/b/limit/y/positive"),
+            ("/service_roboter/limit/z/positive", "/service_roboter/motor/b/limit/z/positive"),
+
+            ("/service_roboter/limit/x/negative", "/service_roboter/motor/b/limit/x/negative"),
+            ("/service_roboter/limit/y/negative", "/service_roboter/motor/b/limit/y/negative"),
+            ("/service_roboter/limit/z/negative", "/service_roboter/motor/b/limit/z/negative"),
             ],
     )
 
@@ -154,10 +178,10 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        relay_driver,
+        # relay_driver,
         motor_driver_a, 
         motor_driver_b, 
         motor_manager,
-        camera_a,
-        camera_b,
+        # camera_a,
+        # camera_b,
         ])

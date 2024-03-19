@@ -25,7 +25,7 @@ ament_target_dependencies(service_roboter_motor_driver rclcpp std_msgs geometry_
 ament_target_dependencies(basis_roboter_relay_driver rclcpp std_msgs geometry_msgs adt_code_msg)
 ament_target_dependencies(basis_roboter_motor_driver rclcpp std_msgs geometry_msgs adt_code_msg)
 ament_target_dependencies(basis_roboter_motor_manager rclcpp std_msgs geometry_msgs adt_code_msg)
-ament_target_dependencies(arduino_bridge rclcpp std_msgs geometry_msgs adt_code_msg)
+ament_target_dependencies(arduino_bridge rclcpp std_msgs adt_code_msg)
 
 target_link_libraries(service_roboter_motor_driver serial)
 target_link_libraries(basis_roboter_relay_driver serial)
